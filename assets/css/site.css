@@ -3,7 +3,7 @@
   font-style:  semibold;
   font-weight: 600;
   font-display: swap;
-  src: url("/rando/assets/fonts/Oswald-Regular.ttf") format("truetype")
+  src: url("../fonts/Oswald-Regular.ttf") format("truetype")
 }
 
 @font-face {
@@ -11,14 +11,14 @@
   font-style:  italic;
   font-weight: 420;
   font-display: swap;
-  src: url("/rando/assets/fonts/Inter-Italic.woff2") format("woff2")
+  src: url("../fonts/Inter-Italic.woff2") format("woff2")
 }
 @font-face {
   font-family: 'Inter';
   font-style:  normal;
   font-weight: 420;
   font-display: swap;
-  src: url("/rando/assets/fonts/Inter-Regular.woff2") format("woff2")
+  src: url("../fonts/Inter-Regular.woff2") format("woff2")
 
 }
 @font-face {
@@ -26,7 +26,7 @@
   font-style:  normal;
   font-weight: 700;
   font-display: swap;
-  src: url("/rando/assets/fonts/Inter-Bold.woff2") format("woff2")
+  src: url("../fonts/Inter-Bold.woff2") format("woff2")
 
 }
 @font-face {
@@ -34,13 +34,13 @@
   font-style:  italic;
   font-weight: 700;
   font-display: swap;
-  src: url("/rando/assets/fonts/Inter-BoldItalic.woff2") format("woff2")
+  src: url("../fonts/Inter-BoldItalic.woff2") format("woff2")
 }
 
 @font-face {
   font-family: "mono";
   font-weight: 420;
-  src: url("/rando/assets/fonts/intelone-mono-font-family-regular.otf") format("OpenType")
+  src: url("../fonts/intelone-mono-font-family-regular.otf") format("OpenType")
 }
 
 :root {
@@ -75,7 +75,7 @@ body {
 
 main {
   min-height: 420px;
-  padding: 0 15px;
+  padding: 0 10px;
 }
 
 dice img {
@@ -83,16 +83,9 @@ dice img {
   padding: 5px;
 }
 
-left {
-  margin-top:15px;
-  padding: 15px;
-}
-
 right {
-  margin-top:15px;
   float: right;
-  padding: 15px;
-  max-width: 220px;
+  max-width: 200px;
   text-align:center;
 }
 
@@ -142,7 +135,7 @@ weather {
 }
 
 .small {
-  font-size: 89%;
+  font-size: 90%;
   font-style: italic;
   color: var(--alt1);
   line-height: 130%;
