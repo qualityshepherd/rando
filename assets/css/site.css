@@ -40,7 +40,7 @@
 @font-face {
   font-family: "mono";
   font-weight: 420;
-  src: url(./assets/fonts/intelone-mono-font-family-regular.otf);
+  src: url("./assets/fonts/intelone-mono-font-family-regular.otf") format("OpenType")
 }
 
 :root {
