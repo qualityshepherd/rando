@@ -3,7 +3,7 @@
   font-style:  semibold;
   font-weight: 600;
   font-display: swap;
-  src: url("/assets/Oswald-Regular.ttf") format("truetype")
+  src: url("./assets/Oswald-Regular.ttf") format("truetype")
 }
 
 @font-face {
@@ -11,14 +11,14 @@
   font-style:  italic;
   font-weight: 420;
   font-display: swap;
-  src: url("/assets/fonts/Inter-Italic.woff2") format("woff2")
+  src: url("./assets/fonts/Inter-Italic.woff2") format("woff2")
 }
 @font-face {
   font-family: 'Inter';
   font-style:  normal;
   font-weight: 420;
   font-display: swap;
-  src: url("/assets/fonts/Inter-Regular.woff2") format("woff2")
+  src: url("./assets/fonts/Inter-Regular.woff2") format("woff2")
 
 }
 @font-face {
@@ -26,7 +26,7 @@
   font-style:  normal;
   font-weight: 700;
   font-display: swap;
-  src: url("/assets/fonts/Inter-Bold.woff2") format("woff2")
+  src: url("./assets/fonts/Inter-Bold.woff2") format("woff2")
 
 }
 @font-face {
@@ -34,13 +34,13 @@
   font-style:  italic;
   font-weight: 700;
   font-display: swap;
-  src: url("/assets/fonts/Inter-BoldItalic.woff2") format("woff2")
+  src: url("./assets/fonts/Inter-BoldItalic.woff2") format("woff2")
 }
 
 @font-face {
   font-family: "mono";
   font-weight: 420;
-  src: url(/assets/fonts/intelone-mono-font-family-regular.otf);
+  src: url(./assets/fonts/intelone-mono-font-family-regular.otf);
 }
 
 :root {
