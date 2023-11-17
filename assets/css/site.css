@@ -90,7 +90,7 @@ right {
 }
 
 tarot img {
-  width: 200px;
+  width: 100%;
   border-radius: 5px;
   filter: brightness(75%);
 }
