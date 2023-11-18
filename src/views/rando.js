@@ -27,7 +27,7 @@ const rando = {
           <img src="${iconUrl}" alt="${weather}" class="dim" title="${weather}" />
           <div class="small">${severity} ${weather}</div>
           <img src="${await r.arrow()}" class="dim" title="direction or hit location" />
-          <div class="header dim">${await r.yesOrNo()}</div>
+          <div class="header dim" title="ask a question">${await r.yesOrNo()}</div>
         </symbols>
       </right>
 
@@ -58,7 +58,7 @@ const rando = {
       <footer>
         <div class="dim">
           <b>RANDO</b> is a random generator for running TTRPGs
-          <br>written by <a href="https://brine.dev"><b>brine</b></a>
+          <br>by <a href="https://brine.dev"><b>brine</b></a>
         </div>
       </footer>
     `
