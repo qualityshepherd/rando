@@ -8,6 +8,7 @@ const rando = {
     const card = await r.tarotCard()
     const [villageItem, dungeonItem, architectureFeature, complication] = await r.misc()
     const [severity, weather, iconUrl] = await r.weather()
+    const [potion, loot] = await r.loot()
 
     return `
       <right>
@@ -43,18 +44,15 @@ const rando = {
         </div>
 
         <div class="misc header">Misc</div>
-          <ul>
-            <li><label>Items</label> ${villageItem}, ${dungeonItem}</li>
-            <li><label>Feature</label> <a href="https://www.google.com/search?as_st=y&tbm=isch&as_q=${architectureFeature}" target="new">${architectureFeature}</a></li>
-            <li><label>Complication</label> ${complication}</li>
-          </ul>
+          <div><label>Items</label> ${villageItem}, ${dungeonItem}</div>
+          <div><label>Feature</label> <a href="https://www.google.com/search?as_st=y&tbm=isch&as_q=${architectureFeature}" target="new">${architectureFeature}</a></div>
+          <div><label>Complication</label> ${complication}</div>
 
         <div class="loot header">Loot</div>
-          <ul>
-            <li>${await r.loot()}</li>
-            <li><label>Herb</label> ${await r.herb()}</li>
-            <li><label>Potion</label> ${await r.potion()}</li>
-          </ul>
+          <div><label>Coin</label> ${(r.d6() * r.d6() + r.d6())}</div>
+          <div><label>Loot</label> ${loot}</div>
+          <div><label>Herb</label> ${await r.herb()}</div>
+          <div><label>Potion</label> ${potion}</div>
       </left>
 
       <footer>
