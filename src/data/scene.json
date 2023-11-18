@@ -123,8 +123,6 @@
   "A royal court room, with rows of benches filled with courtiers and onlookers. A judge is on a raised platform, and a prisoner is being tried for a crime.",
   "A rundown tavern with a dirt floor and dim lighting. The sound of a bard's lute fills the air as patrons drink tankards of ale and shout at each other over the music.",
   "A secret society meeting in a candle-lit basement, where members in hooded robes discuss plans for their mysterious goals. The sound of whispers and the flicker of candlelight can be seen.",
-  "A serene and spacious garden, with a clear blue sky overhead and a gentle breeze blowing. The sound of a fountain trickles in the background as colorful birds flit from tree to tree. The sweet fragrance of blooming flowers fills the air.",
-  "A serene forest, with the sounds of birds chirping and the rustling of leaves in the wind. A druid is communing with nature, surrounded by animals, who seem at peace in her presence.",
   "A shadowy room with a large round table and several hooded figures seated around it. They are deep in conversation, and the sound of clinking glasses can be heard as they toast to their success.",
   "A silent forest, its tall trees reaching towards the sky. The sound of a gentle stream can be heard in the distance, and the scent of damp earth and pine fills the air.",
   "A simple chamber, with only a few pieces of furniture. The sound of someone writing can be heard, accompanied by the occasional dip of a quill in ink.",
@@ -195,5 +193,12 @@
   "Inside a cathedral, monks chant in unison while candles flicker in the dim light. Among the worshipers, a hooded figure quietly examines an ancient tome; occasionally looking over their shoulder.",
   "A tavern filled with raucous laughter and the clinking of tankards. Amidst the merriment, a disguised nobleman listens to the local gossip, seeking information on a hidden rebellion.",
   "In a monastery garden, monks tend to herbs and medicinal plants. Hidden behind the foliage, a pair of lovers from different social classes steal a kiss. They risk scandal and disgrace should they be seen.",
-  "An artist's studio filled with canvases and sculptures. The artist, known for religious works, secretly creates a controversial masterpiece that challenges societal norms."
+  "An artist's studio filled with canvases and sculptures. The artist, known for religious works, secretly creates a controversial masterpiece that challenges societal norms.",
+  "A lone monk walks the road with a weathered staff. The glint of a dagger suggests a deeper purpose; as do his silver tipped leather boots",
+  "An armed man and three beautiful, robed ladies mend a cart by the wayside. Furtive glances and hushed conversations hint at clandestine activities. All three ladies are starting to show.",
+  "A jovial innkeeper welcomes new guests. The subdued conversations of patrons reveal a shared unease about recent events. The priest's daughter is a witch!",
+  "An abandoned campsite with a recent fire. A trail of blood leads deeper into the woods. A closer look reveals a second set of tracks headed in the same direction.",
+  "A group of beggars seek alms. A perceptive gaze reveals they are spies and exchanging coded messages",
+  "A figure cloaked in shadows sits at a crossroads. She offers advice and guidance to those who dare approach. She's not eaten in three days.",
+  "Pilgrims walk the road on a sacred journey.  One walks behind the others with a limp; in obvious pain. He has the clap and two others are starting to show similar signs. The road challenges their faith"
 ]
