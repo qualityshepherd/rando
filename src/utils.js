@@ -14,6 +14,7 @@ export function d6 (numDie = 1) {
 }
 
 export function getRandom (array) {
+  // console.log('==================>', array)
   const r = Math.floor(Math.random() * array.length)
   return array[r]
 }
