@@ -56,6 +56,13 @@ const rando = {
             <li><label>Potion</label> ${await r.potion()}</li>
           </ul>
       </left>
+
+      <footer>
+        <div class="dim">
+          <b>RANDO</b> is a random generator for running TTRPGs
+          <br>written by <a href="https://brine.dev"><b>brine</b></a>
+        </div>
+      </footer>
     `
   }
 }

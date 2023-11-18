@@ -125,7 +125,11 @@ symbols img {
 }
 
 footer {
-  margin-top:50px;
+  margin-top:150px;
+  margin-bottom:50px;
+  font-size:90%;
+  font-style: italic;
+  text-align:center;
 }
 
 #links a {
