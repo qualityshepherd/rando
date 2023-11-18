@@ -99,7 +99,7 @@ tarot .description {
   font-style:italic;
 }
 
-weather img {
+weather img, arrow img {
   margin-top:20px;
   width:80px;
   filter: brightness(75%);

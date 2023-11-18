@@ -13,19 +13,24 @@ const rando = {
       <right>
         <dice>
           <a onclick="location.reload()" title="refresh...">
-          <img src="./assets/images/dice/${r.d6()}.svg" alt="click to re-roll" />
-          <img src="./assets/images/dice/${r.d6()}.svg" alt="click to re-roll" />
-          <img src="./assets/images/dice/${r.d6()}.svg" alt="click to re-roll" />
+          <img src="./assets/images/dice/${r.d6()}.svg" title="click to re-roll" />
+          <img src="./assets/images/dice/${r.d6()}.svg" title="click to re-roll" />
+          <img src="./assets/images/dice/${r.d6()}.svg" title="click to re-roll" />
           </a>
         </dice>
         <tarot>
-          <div><img src="${card.url}" alt="${card.name}" /></div>
+          <div><img src="${card.url}" alt="${card.name}" title="${card.name}" /></div>
           <div class="description small">${card.description}</div>
         </tarot>
         <weather>
-          <img src="${iconUrl}" alt="${weather}" />
+          <img src="${iconUrl}" alt="${weather}" title="${weather}" />
           <div>${severity} ${weather}</div>
         </weather>
+
+        <arrow>
+          <img src="${await r.arrow()}" title="direction or hit location" />
+        </arrow>
+
       </right>
 
       <left>

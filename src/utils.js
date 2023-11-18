@@ -75,6 +75,10 @@ export async function weather () {
   return [severity[severity[0]], weather[weather[0]], `./assets/images/weather/${weather[0]}.svg`]
 }
 
+export async function arrow () {
+  return `./assets/images/arrow/${d6()}.svg`
+}
+
 export function sortBy (prop) {
   return (a, b) => {
     return (a[prop] > b[prop]) ? 1 : (a[prop] < b[prop]) ? -1 : 0
