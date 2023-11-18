@@ -126,6 +126,10 @@ weather {
   font-style: italic;
 }
 
+footer {
+  margin-top:50px;
+}
+
 #links a {
   margin-left: 15px;
   margin-top: 10px;

@@ -31,6 +31,10 @@ const rando = {
           <img src="${await r.arrow()}" title="direction or hit location" />
         </arrow>
 
+        <yesno>
+          <div class="header">${await r.yesOrNo()}</div>
+        </yesno>
+
       </right>
 
       <left>
