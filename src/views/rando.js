@@ -40,10 +40,10 @@ const rando = {
 
         <div class="scene header">Scene</div>
           <div>${await r.scene()}<d/iv>
-          <div class="small spark">${verb}, ${adjective}, ${noun}</div>
         </div>
 
         <div class="misc header">Misc</div>
+          <div><label>Spark</label>${verb}, ${adjective}, ${noun}</div>
           <div><label>Items</label> ${villageItem}, ${dungeonItem}</div>
           <div><label>Feature</label> <a href="https://www.google.com/search?as_st=y&tbm=isch&as_q=${architectureFeature}" target="new">${architectureFeature}</a></div>
           <div><label>Complication</label> ${complication}</div>
