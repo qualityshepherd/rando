@@ -13,34 +13,27 @@ const rando = {
       <right>
         <dice>
           <a onclick="location.reload()" title="refresh...">
-          <img src="./assets/images/dice/${r.d6()}.svg" title="click to re-roll" />
-          <img src="./assets/images/dice/${r.d6()}.svg" title="click to re-roll" />
-          <img src="./assets/images/dice/${r.d6()}.svg" title="click to re-roll" />
+          <img src="./assets/images/dice/${r.d6()}.svg" class="dim" title="click to re-roll" />
+          <img src="./assets/images/dice/${r.d6()}.svg" class="dim" title="click to re-roll" />
+          <img src="./assets/images/dice/${r.d6()}.svg" class="dim" title="click to re-roll" />
           </a>
         </dice>
         <tarot>
-          <div><img src="${card.url}" alt="${card.name}" title="${card.name}" /></div>
+          <div><img src="${card.url}" class="dim" alt="${card.name}" title="${card.name}" /></div>
           <div class="description small">${card.description}</div>
         </tarot>
-        <weather>
-          <img src="${iconUrl}" alt="${weather}" title="${weather}" />
-          <div>${severity} ${weather}</div>
-        </weather>
-
-        <arrow>
-          <img src="${await r.arrow()}" title="direction or hit location" />
-        </arrow>
-
-        <yesorno>
-          <div class="header">${await r.yesOrNo()}</div>
-        </yesorno>
-
+        <symbols>
+          <img src="${iconUrl}" alt="${weather}" class="dim" title="${weather}" />
+          <div class="small">${severity} ${weather}</div>
+          <img src="${await r.arrow()}" class="dim" title="direction or hit location" />
+          <div class="header dim">${await r.yesOrNo()}</div>
+        </symbols>
       </right>
 
       <left>
         <div class="npc">
           <div class="name header">[${male}, ${female}, ${they}] ${sur}</div>
-          <div class="named">${role}, ${history}, ${trait}, ${relationship}</div>
+          <div class="italic">${role}, ${history}, ${trait}, ${relationship}</div>
           <div class="belief"><label>Belief</label> ${belief}</div>
         <div>
 

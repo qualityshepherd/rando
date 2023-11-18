@@ -46,7 +46,7 @@
 :root {
   --bg: #363636;
   --bg-darker: #333333;
-  --bg-darkest: #222222;
+  --bg-darkest: #292929;
   --text: #A0A0A2;
   --header: #79808A;
   --alt1: #627A78;
@@ -92,21 +92,19 @@ right {
 tarot img {
   width: 100%;
   border-radius: 5px;
-  filter: brightness(75%);
 }
 
 tarot .description {
   font-style:italic;
 }
 
-weather img, arrow img, yesorno {
-  margin-top:20px;
-  width:80px;
-  filter: brightness(75%);
+symbols img {
+  margin-top:15px;
+  width:60px;
 }
 
-weather {
-  font-style: italic;
+.dim {
+  filter: brightness(75%);
 }
 
 .section {
@@ -119,10 +117,10 @@ weather {
   font-size:160%;
   line-height: 150%;
   text-transform:uppercase;
-  margin-top: 20px;
+  margin-top: 15px;
 }
 
-.named {
+.italic {
   font-style: italic;
 }
 
@@ -146,7 +144,7 @@ footer {
 }
 
 spoiler {
-  background: #313131;
+  background: var(--bg-darkest);
   border-radius: 0.2em;
   color: transparent;
   cursor: pointer;
