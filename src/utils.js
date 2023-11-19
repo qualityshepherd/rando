@@ -44,9 +44,9 @@ export async function tarotCard () {
   return getRandom(tarot)
 }
 
-export async function scene () {
-  const scene = await getJsonData('./src/data/scene.json')
-  return getRandom(scene)
+export async function hook () {
+  const hooks = await getJsonData('./src/data/hooks.json')
+  return getRandom(hooks)
 }
 
 export async function misc () {
