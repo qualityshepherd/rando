@@ -92,7 +92,7 @@ right {
 tarot img {
   width: 100%;
   border-radius: 5px;
-  border: 4px solid var(--bg-darker);
+  border: 2px solid var(--bg-darker);
  }
 
 tarot .description {
