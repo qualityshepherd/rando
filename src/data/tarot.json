@@ -9,7 +9,7 @@
   { "name": "The Chariot", "description": "Determination, willpower, success", "url": "./assets/images/tarot/07_Chariot.jpg" },
   { "name": "Strength", "description": "Inner strength, courage, patience", "url": "./assets/images/tarot/08_Strength.jpg" },
   { "name": "The Hermit", "description": "Solitude, introspection, guidance", "url": "./assets/images/tarot/09_Hermit.jpg" },
-  { "name": "Wheel of Fortune", "description": "Destiny, change, cycles", "url": "./assets/images/tarot/10_Wheel_Of_Fortune.jpg" },
+  { "name": "Wheel of Fortune", "description": "Destiny, change, cycles", "url": "./assets/images/tarot/10_Wheel_of_Fortune.jpg" },
   { "name": "Justice", "description": "Fairness, truth, balance", "url": "./assets/images/tarot/11_Justice.jpg" },
   { "name": "The Hanged Man", "description": "Surrender, letting go, new perspective", "url": "./assets/images/tarot/12_Hanged_Man.jpg" },
   { "name": "Death", "description": "Transformation, change, rebirth", "url": "./assets/images/tarot/13_Death.jpg" },
