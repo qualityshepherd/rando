@@ -14,7 +14,6 @@ export function d6 (numDie = 1) {
 }
 
 export function getRandom (array) {
-  // console.log('==================>', array)
   const r = Math.floor(Math.random() * array.length)
   return array[r]
 }
@@ -36,7 +35,7 @@ export async function names () {
 
 export async function monikers () {
   const names = await getJsonData('./src/data/npc.json')
-  return [getRandom(names.role), getRandom(names.history), getRandom(names.trait), getRandom(names.relationship), getRandom(names.belief)]
+  return [getRandom(names.role), getRandom(names.epithet), getRandom(names.trait), getRandom(names.relationship), getRandom(names.belief)]
 }
 
 export async function tarotCard () {
@@ -60,7 +59,7 @@ export async function loot () {
   return [`${getRandom(loot.container)} that contains ${getRandom(loot.potion_adjective)},
          ${getRandom(loot.color)} liquid that ${getRandom(loot.taste)} and when consumed ${getRandom(loot.effect)}`,
          `${getRandom(loot.size)} <a href="https://www.google.com/search?as_st=y&tbm=isch&as_q=${lootType}" target="new"><b>${lootType}</b></a>
-         ${getRandom(loot.quality)}.`]
+         ${getRandom(loot.quality)}.`, getRandom(loot.magicItem)]
 }
 
 export async function weather () {

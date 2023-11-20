@@ -4,11 +4,11 @@ const rando = {
   async render (params) {
     const [male, female, they, sur] = await r.names()
     const [verb, adjective, noun] = await r.events()
-    const [role, history, trait, relationship, belief] = await r.monikers()
+    const [role, epithet, trait, relationship, belief] = await r.monikers()
     const card = await r.tarotCard()
     const [villageItem, dungeonItem, architectureFeature, complication] = await r.misc()
     const [severity, weather, iconUrl] = await r.weather()
-    const [potion, loot] = await r.loot()
+    const [potion, loot, magicItem] = await r.loot()
 
     return `
       <right>
@@ -34,7 +34,7 @@ const rando = {
       <left>
         <div class="npc">
           <div class="name header">[${male}, ${female}, ${they}] ${sur}</div>
-          <div class="italic">${role}, ${history}, ${trait}, ${relationship}</div>
+          <div class="italic">${role}, ${epithet}, ${trait}, ${relationship}</div>
           <div class="belief"><label>Belief</label> ${belief}</div>
         <div>
 
@@ -52,6 +52,7 @@ const rando = {
           <div><label>Coin</label> ${(r.d6() * r.d6() + r.d6())}</div>
           <div><label>Loot</label> ${loot}</div>
           <div><label>Herb</label> ${await r.herb()}</div>
+          <div><label>Magic</label> ${magicItem}</div>
           <div><label>Potion</label> ${potion}</div>
       </left>
 

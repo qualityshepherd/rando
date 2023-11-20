@@ -117,8 +117,11 @@ symbols img {
   font-family: var(--header-font);
   font-size:160%;
   line-height: 150%;
-  text-transform:uppercase;
   margin-top: 15px;
+}
+
+.name {
+  font-size:175%;
 }
 
 .italic {
