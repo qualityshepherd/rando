@@ -89,6 +89,10 @@ right {
   text-align:center;
 }
 
+left {
+  margin-right:10px;
+}
+
 tarot img {
   width: 100%;
   border-radius: 5px;
