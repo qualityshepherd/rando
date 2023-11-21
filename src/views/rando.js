@@ -38,8 +38,8 @@ const rando = {
           <div class="belief"><label>Belief</label> ${belief}</div>
         <div>
 
-        <div class="hook header">Hook</div>
-          <div>${await r.hook()}<d/iv>
+        <div class="situation header">Situation</div>
+          <div>${await r.situation()}<d/iv>
         </div>
 
         <div class="misc header">Misc</div>
