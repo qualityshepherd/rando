@@ -23,9 +23,9 @@ export async function events () {
   return [getRandom(events.verb), getRandom(events.adjective), getRandom(events.noun)]
 }
 
-export async function herb () {
-  const herbs = await getJsonData('./src/data/herbs.json')
-  return getRandom(herbs)
+export async function apothecary () {
+  const apothecary = await getJsonData('./src/data/apothecary.json')
+  return getRandom(apothecary)
 }
 
 export async function names () {

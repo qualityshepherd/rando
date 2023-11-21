@@ -51,7 +51,7 @@ const rando = {
         <div class="loot header">Loot</div>
           <div><label>Coin</label> ${(r.d6() * r.d6() + r.d6())}</div>
           <div><label>Loot</label> ${loot}</div>
-          <div><label>Herb</label> ${await r.herb()}</div>
+          <div><label>Apothecary</label> ${await r.apothecary()}</div>
           <div><label>Magic</label> ${magicItem}</div>
           <div><label>Potion</label> ${potion}</div>
       </left>
