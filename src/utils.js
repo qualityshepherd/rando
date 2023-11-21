@@ -53,7 +53,7 @@ export async function situation () {
 
 export async function misc () {
   const misc = await getJsonData('./src/data/misc.json')
-  return [getRandom(misc.villageItem), getRandom(misc.dungeonItem), getRandom(misc.architectureFeature), getRandom(misc.complication)]
+  return [getRandom(misc.villageItem), getRandom(misc.dungeonItem), getRandom(misc.complication)]
 }
 
 export async function loot () {

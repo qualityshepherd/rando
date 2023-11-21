@@ -6,7 +6,7 @@ const rando = {
     const [verb, adjective, noun] = await r.events()
     const [role, epithet, trait, relationship, belief] = await r.monikers()
     const card = await r.tarotCard()
-    const [villageItem, dungeonItem, architectureFeature, complication] = await r.misc()
+    const [villageItem, dungeonItem, complication] = await r.misc()
     const [severity, weather, iconUrl] = await r.weather()
     const [potion, loot, magicItem] = await r.loot()
 
@@ -45,7 +45,6 @@ const rando = {
         <div class="misc header">Misc</div>
           <div><label>Spark</label>${verb}, ${adjective}, ${noun}</div>
           <div><label>Items</label> ${villageItem}, ${dungeonItem}</div>
-          <div><label>Feature</label> <a href="https://www.google.com/search?as_st=y&tbm=isch&as_q=${architectureFeature}" target="new">${architectureFeature}</a></div>
           <div><label>Complication</label> ${complication}</div>
 
         <div class="loot header">Loot</div>
