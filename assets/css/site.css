@@ -103,6 +103,10 @@ tarot .description {
   font-style:italic;
 }
 
+.reversed {
+  transform: rotate(180deg);
+}
+
 symbols img {
   margin-top:15px;
   width:60px;

@@ -39,8 +39,11 @@ export async function monikers () {
 }
 
 export async function tarotCard () {
-  const tarot = await getJsonData('./src/data/tarot.json')
-  return getRandom(tarot)
+  const card = await getRandom(await getJsonData('./src/data/tarot.json'))
+  if(d6() < 3) {
+    card.reversed = true
+  }
+  return card
 }
 
 export async function situation () {

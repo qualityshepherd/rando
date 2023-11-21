@@ -20,8 +20,8 @@ const rando = {
           </a>
         </dice>
         <tarot>
-          <div><img src="${card.url}" class="dim" alt="${card.name}" title="${card.name}" /></div>
-          <div class="description small">${card.description}</div>
+          <div><img src="${card.url}" class="dim ${card.reversed ? 'reversed' : 'upright'}" alt="${card.name}" title="${card.name} ${card.reversed ? 'reversed' : 'upright'}" /></div>
+          <div class="description small">${card.reversed ? card.desc_reversed : card.desc_upright}</div>
         </tarot>
         <symbols>
           <img src="${iconUrl}" alt="${weather}" class="dim" title="${weather}" />
