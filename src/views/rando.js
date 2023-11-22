@@ -3,7 +3,7 @@ import * as r from '../utils'
 const rando = {
   async render (params) {
     const [male, female, they, sur] = await r.names()
-    const [verb, adjective, noun] = await r.events()
+    const [verb, adjective, noun] = await r.spark()
     const [role, epithet, trait, relationship, belief] = await r.monikers()
     const card = await r.tarotCard()
     const [villageItem, dungeonItem, dungeonFeature, ruinFeature, complication] = await r.misc()

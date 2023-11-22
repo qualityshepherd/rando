@@ -18,9 +18,9 @@ export function getRandom (array) {
   return array[r]
 }
 
-export async function events () {
-  const events = await getJsonData('./src/data/events.json')
-  return [getRandom(events.verb), getRandom(events.adjective), getRandom(events.noun)]
+export async function spark () {
+  const spark = await getJsonData('./src/data/spark.json')
+  return [getRandom(spark.verb), getRandom(spark.adjective), getRandom(spark.noun)]
 }
 
 export async function apothecary () {
