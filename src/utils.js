@@ -60,8 +60,8 @@ export async function loot () {
   const loot = await getJsonData('./src/data/loot.json')
   const lootType = await getRandom(loot.type)
   return [`${getRandom(loot.container)} that contains ${getRandom(loot.potion_adjective)},
-         ${getRandom(loot.color)} liquid that ${getRandom(loot.taste)} and when consumed ${getRandom(loot.effect)}`,
-         `${getRandom(loot.size)} <a href="https://www.google.com/search?as_st=y&tbm=isch&as_q=${lootType}" target="new"><b>${lootType}</b></a>
+         ${getRandom(loot.color)} liquid that ${getRandom(loot.taste)} and when consumed <i>${getRandom(loot.effect)}</i>`,
+         `${getRandom(loot.size)} ${lootType}
          ${getRandom(loot.quality)}.`, getRandom(loot.magicItem)]
 }
 
