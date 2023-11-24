@@ -2,4 +2,4 @@
 
 # RANDO
 
-[RANDO](https://qualityshepherd.github.io/rando/) is random generator for table top role playing games (TTRPGs).
+[RANDO](https://rando.brine.dev) is random generator for table top role playing games (TTRPGs).
