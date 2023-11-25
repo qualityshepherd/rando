@@ -87,10 +87,7 @@ right {
   float: right;
   max-width: 200px;
   text-align:center;
-}
-
-left {
-  margin-right:10px;
+  margin-left:15px;
 }
 
 tarot img {
