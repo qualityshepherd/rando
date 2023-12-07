@@ -1,5 +1,9 @@
 // Note: fetch is provided in the browser...
 
+Array.prototype.random = function () {
+  return this[Math.floor((Math.random()*this.length))];
+}
+
 export async function getJsonData (path) {
   const data = await fetch(path)
   return await data.json()
@@ -13,37 +17,33 @@ export function d6 (numDie = 1) {
   return result
 }
 
-export function getRandom (array) {
-  const r = Math.floor(Math.random() * array.length)
-  return array[r]
-}
-
 export async function spark () {
   const spark = await getJsonData('./src/data/spark.json')
-  const thirds = ~~(spark.length / 3) // ignores remainder
-  const one = spark.slice(0, thirds)
-  const two = spark.slice(thirds, thirds * 2)
-  const three = spark.slice(thirds, thirds * 3)
-  return `${getRandom(one)}, ${getRandom(two)}, ${getRandom(three)}`
+  let randSparks = []
+  while(randSparks.length < 3) {
+    randSparks.push(spark.random())
+    new Set(randSparks)
+  }
+  return `${randSparks[0]}, ${randSparks[1]}, ${randSparks[2]}`
 }
 
 export async function apothecary () {
   const apothecary = await getJsonData('./src/data/apothecary.json')
-  return getRandom(apothecary)
+  return apothecary.random()
 }
 
 export async function names () {
   const names = await getJsonData('./src/data/npc.json')
-  return [getRandom(names.male), getRandom(names.female), getRandom(names.they), getRandom(names.sur)]
+  return [names.male.random(), names.female.random(), names.they.random(), names.sur.random()]
 }
 
 export async function monikers () {
   const names = await getJsonData('./src/data/npc.json')
-  return [getRandom(names.role), getRandom(names.epithet), getRandom(names.trait), getRandom(names.relationship), getRandom(names.belief)]
+  return [names.role.random(), names.epithet.random(), names.trait.random(), names.relationship.random(), names.belief.random()]
 }
 
 export async function tarotCard () {
-  const card = await getRandom(await getJsonData('./src/data/tarot.json'))
+  const card = (await getJsonData('./src/data/tarot.json')).random()
   if (d6() < 3) {
     card.reversed = true
   }
@@ -52,21 +52,21 @@ export async function tarotCard () {
 
 export async function situation () {
   const situation = await getJsonData('./src/data/situation.json')
-  return getRandom(situation)
+  return situation.random()
 }
 
 export async function misc () {
   const misc = await getJsonData('./src/data/misc.json')
-  return [getRandom(misc.villageItem), getRandom(misc.dungeonItem), getRandom(misc.dungeonFeature), getRandom(misc.ruinFeature), getRandom(misc.complication), getRandom(misc.threat)]
+  return [misc.villageItem.random(), misc.dungeonItem.random(), misc.dungeonFeature.random(), misc.ruinFeature.random(), misc.complication.random(), misc.threat.random()]
 }
 
 export async function loot () {
   const loot = await getJsonData('./src/data/loot.json')
-  const lootType = await getRandom(loot.type)
-  return [`${getRandom(loot.container)} that contains ${getRandom(loot.potion_adjective)},
-         ${getRandom(loot.color)} liquid that ${getRandom(loot.taste)} and when consumed <i>${getRandom(loot.effect)}</i>`,
-         `${getRandom(loot.size)} ${lootType}
-         ${getRandom(loot.quality)}.`, getRandom(loot.magicItem)]
+  const lootType = loot.type.random()
+  return [`${loot.container.random()} that contains ${loot.potion_adjective.random()},
+         ${loot.color.random()} liquid that ${loot.taste.random()} and when consumed <i>${loot.effect.random()}</i>`,
+         `${loot.size.random()} ${lootType}
+         ${loot.quality.random()}.`, loot.magicItem.random()]
 }
 
 export async function weather () {
