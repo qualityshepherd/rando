@@ -20,7 +20,11 @@ export function getRandom (array) {
 
 export async function spark () {
   const spark = await getJsonData('./src/data/spark.json')
-  return [getRandom(spark.verb), getRandom(spark.adjective), getRandom(spark.noun)]
+  const thirds = ~~(spark.length / 3) // ignores remainder
+  const one = spark.slice(0, thirds)
+  const two = spark.slice(thirds, thirds * 2)
+  const three = spark.slice(thirds, thirds * 3)
+  return `${getRandom(one)}, ${getRandom(two)}, ${getRandom(three)}`
 }
 
 export async function apothecary () {
@@ -40,7 +44,7 @@ export async function monikers () {
 
 export async function tarotCard () {
   const card = await getRandom(await getJsonData('./src/data/tarot.json'))
-  if(d6() < 3) {
+  if (d6() < 3) {
     card.reversed = true
   }
   return card
@@ -53,7 +57,7 @@ export async function situation () {
 
 export async function misc () {
   const misc = await getJsonData('./src/data/misc.json')
-  return [getRandom(misc.villageItem), getRandom(misc.dungeonItem), getRandom(misc.dungeonFeature), getRandom(misc.ruinFeature), getRandom(misc.complication)]
+  return [getRandom(misc.villageItem), getRandom(misc.dungeonItem), getRandom(misc.dungeonFeature), getRandom(misc.ruinFeature), getRandom(misc.complication), getRandom(misc.threat)]
 }
 
 export async function loot () {
