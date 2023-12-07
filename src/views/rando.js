@@ -41,13 +41,13 @@ const rando = {
           <div><label>Spark</label>${await r.spark()}</div>
           <div><label>Threat</label> ${threat}</div>
           <div><label>Complication</label> ${complication}</div>
+          <div><label>Apothecary</label> ${await r.apothecary()}</div>
           <div><label>Items</label> ${villageItem}, ${dungeonItem}</div>
           <div><label>Features</label> ${dungeonFeature}, ${ruinFeature}</div>
 
         <div class="loot header">Loot</div>
           <div><label>Coin</label> ${(r.d6() * r.d6() + r.d6())}</div>
           <div><label>Loot</label> ${loot}</div>
-          <div><label>Apothecary</label> ${await r.apothecary()}</div>
           <div><label>Magic</label> ${magicItem}</div>
           <div><label>Potion</label> ${potion}</div>
 
