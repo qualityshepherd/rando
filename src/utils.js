@@ -63,8 +63,8 @@ export async function misc () {
 export async function loot () {
   const loot = await getJsonData('./src/data/loot.json')
   const lootType = loot.type.random()
-  return [`${loot.container.random()} that contains ${loot.potion_adjective.random()},
-         ${loot.color.random()} liquid that ${loot.taste.random()} and when consumed <i>${loot.effect.random()}</i>`,
+  return [`${loot.potion_adjective.random()},
+         ${loot.color.random()} liquid that ${loot.taste.random()} that makes the target <i>${loot.effect.random()}</i>`,
          `${loot.size.random()} ${lootType}
          ${loot.quality.random()}.`, loot.magicItem.random()]
 }
