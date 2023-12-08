@@ -65,8 +65,7 @@ export async function loot () {
   const lootType = loot.type.random()
   return [`${loot.potion_adjective.random()},
          ${loot.color.random()} liquid that ${loot.taste.random()} that makes the target <i>${loot.effect.random()}</i>`,
-         `${loot.size.random()} ${lootType}
-         ${loot.quality.random()}.`, loot.magicItem.random()]
+         `${loot.quality.random()} ${loot.size.random()} ${lootType}.`, loot.magicItem.random()]
 }
 
 export async function weather () {
