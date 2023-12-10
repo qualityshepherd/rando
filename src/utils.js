@@ -1,7 +1,7 @@
 // Note: fetch is provided in the browser...
 
 Array.prototype.random = function () {
-  return this[Math.floor((Math.random()*this.length))];
+  return this[Math.floor((Math.random() * this.length))]
 }
 
 export async function getJsonData (path) {
@@ -19,8 +19,8 @@ export function d6 (numDie = 1) {
 
 export async function spark () {
   const spark = await getJsonData('./src/data/spark.json')
-  let randSparks = []
-  while(randSparks.length < 3) {
+  const randSparks = []
+  while (randSparks.length < 3) {
     randSparks.push(spark.random())
     new Set(randSparks)
   }
