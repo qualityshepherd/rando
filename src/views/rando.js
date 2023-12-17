@@ -5,7 +5,7 @@ const rando = {
     const [male, female, they, sur] = await r.names()
     const [role, epithet, trait, relationship, belief] = await r.monikers()
     const card = await r.tarotCard()
-    const [villageItem, dungeonItem, dungeonFeature, ruinFeature, complication, threat, pocket] = await r.misc()
+    const [villageItem, dungeonItem, dungeonFeature, ruinFeature, complication, threat, pocket, problem] = await r.misc()
     const [severity, weather, iconUrl] = await r.weather()
     const [potion, loot, magicItem] = await r.loot()
 
@@ -40,15 +40,16 @@ const rando = {
         <div class="sparks header">Sparks</div>
           <div><label>Spark</label>${await r.spark()}</div>
           <div><label>Threat</label> ${threat}</div>
+          <div><label>Problem</label> ${problem}</div>
           <div><label>Complication</label> ${complication}</div>
-          <div><label>Apothecary</label> ${await r.apothecary()}</div>
-          <div><label>Pocket</label> ${pocket}</div>
           <div><label>Found</label> ${villageItem}, ${dungeonItem}</div>
           <div><label>Features</label> ${dungeonFeature}, ${ruinFeature}</div>
 
         <div class="loot header">Loot</div>
           <div><label>Coin</label> ${(r.d6() * r.d6() + r.d6())}</div>
+          <div><label>Pocket</label> ${pocket}</div>
           <div><label>Loot</label> ${loot}</div>
+          <div><label>Apothecary</label> ${await r.apothecary()}</div>
           <div><label>Magic</label> ${magicItem}</div>
           <div><label>Potion</label> ${potion}</div>
 
