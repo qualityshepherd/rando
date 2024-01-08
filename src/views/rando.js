@@ -38,7 +38,7 @@ const rando = {
         <div>
 
         <div class="sparks header">Sparks</div>
-          <div><label>Spark</label>${await r.spark()}</div>
+          <div><label>Spark</label> ${await r.spark()}</div>
           <div><label>Threat</label> ${threat}</div>
           <div><label>Problem</label> ${problem}</div>
           <div><label>Complication</label> ${complication}</div>
