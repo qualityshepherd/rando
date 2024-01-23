@@ -39,7 +39,7 @@ export async function names () {
 
 export async function monikers () {
   const names = await getJsonData('./src/data/npc.json')
-  return [names.role.random(), names.epithet.random(), names.trait.random(), names.relationship.random(), names.belief.random()]
+  return [names.role.random(), names.epithet.random(), names.trait.random(), names.relationship.random(), names.look.random(), names.belief.random()]
 }
 
 export async function tarotCard () {

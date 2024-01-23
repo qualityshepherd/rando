@@ -3,7 +3,7 @@ import * as r from '../utils'
 const rando = {
   async render (params) {
     const [male, female, they, sur] = await r.names()
-    const [role, epithet, trait, relationship, belief] = await r.monikers()
+    const [role, epithet, trait, relationship, look, belief] = await r.monikers()
     const card = await r.tarotCard()
     const [villageItem, dungeonItem, dungeonFeature, ruinFeature, complication, threat, pocket, problem] = await r.misc()
     const [severity, weather, iconUrl] = await r.weather()
@@ -34,6 +34,7 @@ const rando = {
         <div class="npc">
           <div class="name header">[${male}, ${female}, ${they}] ${sur}</div>
           <div class="italic">${role}, ${epithet}, ${trait}, ${relationship}</div>
+          <div class="look"><label>look</label> ${look}</div>
           <div class="belief"><label>Belief</label> ${belief}</div>
         <div>
 
