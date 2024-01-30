@@ -57,7 +57,7 @@ export async function situation () {
 
 export async function misc () {
   const misc = await getJsonData('./src/data/misc.json')
-  return [misc.villageItem.random(), misc.dungeonItem.random(), misc.dungeonFeature.random(), misc.ruinFeature.random(), misc.complication.random(), misc.threat.random(), misc.pocket.random(), misc.problem.random()]
+  return [misc.villageItem.random(), misc.dungeonItem.random(), misc.dungeonFeature.random(), misc.ruinFeature.random(), misc.complication.random(), misc.threat.random(), misc.pocket.random(), misc.problem.random(), misc.theme.random() ]
 }
 
 export async function loot () {
