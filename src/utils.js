@@ -1,5 +1,6 @@
 // Note: fetch is provided in the browser...
 
+// eslint-disable-next-line no-extend-native
 Array.prototype.random = function () {
   return this[Math.floor((Math.random() * this.length))]
 }
@@ -22,6 +23,7 @@ export async function spark () {
   const randSparks = []
   while (randSparks.length < 3) {
     randSparks.push(spark.random())
+    // eslint-disable-next-line no-new
     new Set(randSparks)
   }
   return `${randSparks[0]}, ${randSparks[1]}, ${randSparks[2]}`
@@ -57,7 +59,7 @@ export async function situation () {
 
 export async function misc () {
   const misc = await getJsonData('./src/data/misc.json')
-  return [misc.villageItem.random(), misc.dungeonItem.random(), misc.dungeonFeature.random(), misc.ruinFeature.random(), misc.complication.random(), misc.threat.random(), misc.pocket.random(), misc.problem.random(), misc.theme.random() ]
+  return [misc.villageItem.random(), misc.dungeonItem.random(), misc.dungeonFeature.random(), misc.ruinFeature.random(), misc.complication.random(), misc.threat.random(), misc.pocket.random(), misc.problem.random(), misc.theme.random()]
 }
 
 export async function loot () {
@@ -76,8 +78,15 @@ export async function weather () {
   return [severity[severity[0]], weather[weather[0]], `./assets/images/weather/${weather[0]}.svg`]
 }
 
-export async function yesOrNo () {
-  return (d6() > 3) ? 'Yes' : 'No'
+export async function yesNoAndBut () {
+  switch (d6()) {
+    case 6: return 'Yes+'
+    case 5: return 'Yes'
+    case 4: return 'Yes?'
+    case 3: return 'No?'
+    case 2: return 'No'
+    case 1: return 'No+'
+  }
 }
 
 export async function arrow () {

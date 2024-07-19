@@ -5,7 +5,7 @@ const rando = {
     const [male, female, they, sur] = await r.names()
     const [role, epithet, trait, relationship, belief] = await r.monikers()
     const card = await r.tarotCard()
-    const [villageItem, dungeonItem, dungeonFeature, ruinFeature, complication, threat, pocket, problem, theme ] = await r.misc()
+    const [villageItem, dungeonItem, dungeonFeature, ruinFeature, complication, threat, pocket, problem, theme] = await r.misc()
     const [severity, weather, iconUrl] = await r.weather()
     const [potion, loot, magicItem] = await r.loot()
 
@@ -26,7 +26,7 @@ const rando = {
           <img src="${iconUrl}" alt="${weather}" class="dim" title="${weather}" />
           <div class="small">${severity} ${weather}</div>
           <img src="${await r.arrow()}" class="dim" title="direction or hit location" />
-          <div class="header dim" title="ask a question">${await r.yesOrNo()}</div>
+          <div class="header dim" title="ask a question">${await r.yesNoAndBut()}</div>
         </symbols>
       </right>
 
