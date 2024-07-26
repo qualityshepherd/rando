@@ -5,7 +5,7 @@ const rando = {
     const [male, female, they, sur] = await r.names()
     const [role, epithet, trait, relationship, belief] = await r.monikers()
     const card = await r.tarotCard()
-    const [villageItem, dungeonItem, dungeonFeature, ruinFeature, complication, threat, pocket, theme] = await r.misc()
+    const [villageItem, dungeonItem, dungeonFeature, ruinFeature, complication, threat, pocket] = await r.misc()
     const [severity, weather, iconUrl] = await r.weather()
     const [potion, loot, magicItem] = await r.loot()
 
@@ -39,7 +39,6 @@ const rando = {
 
         <div class="sparks header">Sparks</div>
           <div><label>Spark</label> ${await r.spark()}</div>
-          <div><label>Theme</label> ${theme}</div>
           <div><label>Threat</label> ${threat}</div>
           <div><label>Complication</label> ${complication}</div>
 
