@@ -21,12 +21,12 @@ export function d6 (numDie = 1) {
 export async function spark () {
   const spark = await getJsonData('./src/data/spark.json')
   const randSparks = []
-  while (randSparks.length < 3) {
+  while (randSparks.length < 4) {
     randSparks.push(spark.random())
     // eslint-disable-next-line no-new
-    new Set(randSparks)
+    new Set(randSparks) // only unique
   }
-  return `${randSparks[0]}, ${randSparks[1]}, ${randSparks[2]}`
+  return randSparks.join(', ')
 }
 
 export async function apothecary () {
