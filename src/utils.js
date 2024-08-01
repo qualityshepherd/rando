@@ -18,11 +18,11 @@ export function d6 (numDie = 1) {
   return result
 }
 
-export async function spark () {
-  const spark = await getJsonData('./src/data/spark.json')
+export async function sparks () {
+  const data = await getJsonData('./src/data/sparks.json')
   const randSparks = []
   while (randSparks.length < 4) {
-    randSparks.push(spark.random())
+    randSparks.push(data.random())
     // eslint-disable-next-line no-new
     new Set(randSparks) // only unique
   }
@@ -39,7 +39,7 @@ export async function names () {
   return [names.male.random(), names.female.random(), names.they.random(), names.sur.random()]
 }
 
-export async function monikers () {
+export async function epithets () {
   const names = await getJsonData('./src/data/npc.json')
   return [names.role.random(), names.epithet.random(), names.trait.random(), names.relationship.random(), names.belief.random()]
 }

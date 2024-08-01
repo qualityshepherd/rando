@@ -3,7 +3,7 @@ import * as r from '../utils'
 const rando = {
   async render (params) {
     const [male, female, they, sur] = await r.names()
-    const [role, epithet, trait, relationship, belief] = await r.monikers()
+    const [role, epithet, trait, relationship, belief] = await r.epithets()
     const card = await r.tarotCard()
     const [villageItem, dungeonItem, dungeonFeature, ruinFeature, complication, threat, pocket] = await r.misc()
     const [severity, weather, iconUrl] = await r.weather()
@@ -38,7 +38,7 @@ const rando = {
         <div>
 
         <div class="sparks header">Sparks</div>
-          <div><label>Spark</label> ${await r.spark()}</div>
+          <div><label>Sparks</label> ${await r.sparks()}</div>
           <div><label>Threat</label> ${threat}</div>
           <div><label>Complication</label> ${complication}</div>
 
