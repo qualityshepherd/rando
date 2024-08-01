@@ -20,11 +20,11 @@ export function d6 (numDie = 1) {
 
 export async function sparks () {
   const data = await getJsonData('./src/data/sparks.json')
-  const randSparks = []
+  let randSparks = []
   while (randSparks.length < 4) {
     randSparks.push(data.random())
     // eslint-disable-next-line no-new
-    new Set(randSparks) // only unique
+    randSparks = [...new Set(randSparks)] // removes dupes
   }
   return randSparks.join(', ')
 }
