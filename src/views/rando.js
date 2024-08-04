@@ -5,7 +5,7 @@ const rando = {
     const [male, female, they, sur] = await r.names()
     const [role, epithet, trait, relationship, belief] = await r.epithets()
     const card = await r.tarotCard()
-    const [villageItem, dungeonItem, dungeonFeature, ruinFeature, complication, threat, pocket] = await r.misc()
+    const [villageItem, dungeonItem, complication, threat, pocket] = await r.misc()
     const [severity, weather, iconUrl] = await r.weather()
     const [potion, loot, magicItem] = await r.loot()
 
