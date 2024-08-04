@@ -37,10 +37,10 @@ const rando = {
           <div class="belief"><label>Belief</label> ${belief}</div>
         <div>
 
-        <div class="sparks header">Sparks</div>
-          <div><label>Sparks</label> ${await r.sparks()}</div>
-          <div><label>Threat</label> ${threat}</div>
-          <div><label>Complication</label> ${complication}</div>
+        <div class="sparks header">Sparks <span class="copy dim small" title="copy text" onclick="copyTextToClipboard()">✁</span></div>
+          <div class="copyToClipboard"><label>Sparks</label> ${await r.sparks()}</div>
+          <div class="copyToClipboard"><label>Threat</label> ${threat}</div>
+          <div class="copyToClipboard"><label>Complication</label> ${complication}</div>
 
         <div class="loot header">Loot</div>
           <div><label>Coin</label> ${(r.d6() * r.d6() + r.d6())}</div>
