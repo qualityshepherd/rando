@@ -32,8 +32,7 @@ function toggleHamburger () {
   }
 }
 
-
-function copyTextToClipboard() {
-  let text = [...document.querySelectorAll('.copyToClipboard')].map(elm => `${elm.textContent}\n`).join('')
+function copyTextToClipboard () {
+  const text = [...document.querySelectorAll('.copyToClipboard')].map(elm => `${elm.textContent}\n`).join('')
   navigator.clipboard.writeText(text)
 }
