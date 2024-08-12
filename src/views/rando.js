@@ -5,7 +5,7 @@ const rando = {
     const [male, female, they, sur] = await r.names()
     const [role, epithet, trait, relationship, belief] = await r.epithets()
     const card = await r.tarotCard()
-    const [villageItem, dungeonItem, complication, threat, pocket] = await r.misc()
+    const [villageItem, dungeonItem, complication, threat, pocket, trade] = await r.misc()
     const [severity, weather, iconUrl] = await r.weather()
     const [potion, loot, magicItem] = await r.loot()
 
@@ -46,6 +46,7 @@ const rando = {
           <div><label>Coin</label> ${(r.d6() * r.d6() + r.d6())}</div>
           <div><label>Loot</label> ${loot}</div>
           <div><label>Apothecary</label> ${await r.apothecary()}</div>
+          <div><label>Trade</label> ${trade}</div>
           <div><label>Found</label> ${villageItem}, ${dungeonItem}</div>
           <div><label>Pocket</label> ${pocket}</div>
           <div><label>Magic</label> ${magicItem}</div>
