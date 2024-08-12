@@ -46,4 +46,4 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v4
       - name: Purge cache
-        run: npm run purge
+        run: `curl -X POST \"https://api.cloudflare.com/client/v4/zones/${{secrets.BRINE_TOKEN}}/purge_cache\" -H \"Authorization: Bearer ${{secrets.BEARER}}\" -H \"Content-Type: application/json\" --data '{\"purge_everything\":true}'`
