@@ -14,6 +14,7 @@
     "pretty": "standard --fix",
     "pack": "webpack",
     "purge": "curl -X POST \"https://api.cloudflare.com/client/v4/zones/$BRINE_TOKEN/purge_cache\" -H \"Authorization: Bearer $BEARER\" -H \"Content-Type: application/json\" --data '{\"purge_everything\":true}'",
+    "gh_purge": "curl -X POST \"https://api.cloudflare.com/client/v4/zones/${{secrets.BRINE_TOKEN}}/purge_cache\" -H \"Authorization: Bearer ${{secrets.BEARER}}\" -H \"Content-Type: application/json\" --data '{\"purge_everything\":true}'",
     "start": "npm run pack",
     "server": "http-server -p 4242",
     "restart": "npm start; npm run server"
