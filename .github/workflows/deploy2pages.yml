@@ -45,5 +45,9 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+      - name: Get ENVs
+        env:
+          BEARER: ${{ secrets.BEARER }}
+          BRINE_TOKEN: ${{ secrets.BRINE_TOKEN }}
       - name: Purge cache
-        run: npm run gh_purge
+        run: npm run purge
