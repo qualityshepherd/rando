@@ -43,12 +43,11 @@ const rando = {
           <div class="copyToClipboard"><label>Complication</label> ${complication}</div>
 
         <div class="loot header">Loot</div>
-          <div><label>Coin</label> ${(r.d6() * r.d6() + r.d6())}</div>
-          <div><label>Loot</label> ${loot}</div>
+          <label>Loot</label> ${(r.d6() * r.d6() + r.d6())} coins and ${loot} </div>
           <div><label>Apothecary</label> ${await r.apothecary()}</div>
-          <div><label>Trade</label> ${trade}</div>
           <div><label>Found</label> ${villageItem}, ${dungeonItem}</div>
           <div><label>Pocket</label> ${pocket}</div>
+          <div><label>Trade</label> ${trade}</div>
           <div><label>Magic</label> ${magicItem}</div>
           <div><label>Potion</label> ${potion}</div>
 
