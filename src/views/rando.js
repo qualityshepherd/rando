@@ -33,7 +33,7 @@ const rando = {
       <left>
         <div class="npc">
           <div class="name header">[${male}, ${female}, ${they}] ${sur}</div>
-          <div class="italic">${role}, ${epithet}, ${trait}, ${relationship}</div>
+          <div class="italic">${role}, ${epithet}, ${trait}${relationship ? `, ${relationship}` : '' }</div>
           <div class="belief"><label>Belief</label> ${belief}</div>
         <div>
 
