@@ -19,7 +19,7 @@ export function d6 (numDie = 1) {
 }
 
 export async function sparks () {
-  const data = await getJsonData('./src/data/sparks.json')
+  const data = await getJsonData('../data/sparks.json')
   let randSparks = []
   while (randSparks.length < 4) {
     randSparks.push(data.random())
@@ -30,22 +30,22 @@ export async function sparks () {
 }
 
 export async function apothecary () {
-  const apothecary = await getJsonData('./src/data/apothecary.json')
+  const apothecary = await getJsonData('../data/apothecary.json')
   return apothecary.random()
 }
 
 export async function names () {
-  const names = await getJsonData('./src/data/npc.json')
+  const names = await getJsonData('../data/npc.json')
   return [names.male.random(), names.female.random(), names.they.random(), names.sur.random()]
 }
 
 export async function epithets () {
-  const names = await getJsonData('./src/data/npc.json')
+  const names = await getJsonData('../data/npc.json')
   return [names.role.random(), names.epithet.random(), names.trait.random(), names.relationship.random(), names.belief.random()]
 }
 
 export async function tarotCard () {
-  const card = (await getJsonData('./src/data/tarot.json')).random()
+  const card = (await getJsonData('../data/tarot.json')).random()
   if (d6() < 3) {
     card.reversed = true
   }
@@ -53,17 +53,17 @@ export async function tarotCard () {
 }
 
 export async function situation () {
-  const situation = await getJsonData('./src/data/situation.json')
+  const situation = await getJsonData('../data/situation.json')
   return situation.random()
 }
 
 export async function misc () {
-  const misc = await getJsonData('./src/data/misc.json')
+  const misc = await getJsonData('../data/misc.json')
   return [misc.villageItem.random(), misc.dungeonItem.random(), misc.complication.random(), misc.threat.random(), misc.pocket.random(), misc.trade.random()]
 }
 
 export async function loot () {
-  const loot = await getJsonData('./src/data/loot.json')
+  const loot = await getJsonData('../data/loot.json')
   const lootType = loot.type.random()
   return [`${loot.potion_adjective.random()},
          ${loot.color.random()} liquid that ${loot.taste.random()} that makes the target <i>${loot.effect.random()}</i>`,
