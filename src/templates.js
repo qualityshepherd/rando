@@ -95,8 +95,8 @@ function sparksSection(sparks, threat, complication) {
   return `
     <div class="sparks header">Sparks <span class="copy dim small" title="copy text" data-copy>✁</span></div>
     <div class="copyToClipboard"><label>Sparks</label> ${sparks}</div>
-    <div><label>Threat</label> ${threat}</div>
-    <div><label>Complication</label> ${complication}</div>`
+    <div class="copyToClipboard"><label>Threat</label> ${threat}</div>
+    <div class="copyToClipboard"><label>Complication</label> ${complication}</div>`
 }
 
 function lootSection({ coinAmount, loot, apothecary, potion, magicItem, villageItem, dungeonItem, pocket, trade }) {
