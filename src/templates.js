@@ -93,7 +93,7 @@ function npcSection({ male, female, they, sur, role, epithet, trait, relationshi
 
 function sparksSection(sparks, threat, complication) {
   return `
-    <div class="sparks header">Sparks <span class="copy dim small" title="copy text" data-copy>✁</span></div>
+    <div class="sparks header">Sparks <span class="copy dim small" title="copy sparks and tarot text" data-copy>✁</span></div>
     <div class="copyToClipboard"><label>Sparks</label> ${sparks}</div>
     <div class="copyToClipboard"><label>Threat</label> ${threat}</div>
     <div class="copyToClipboard"><label>Complication</label> ${complication}</div>`
