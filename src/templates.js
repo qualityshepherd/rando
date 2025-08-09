@@ -68,6 +68,7 @@ function tarotSection(card) {
     <tarot>
       <div><img src="${card.url}" class="dim ${orientation}" alt="${card.name}" title="${card.name} ${orientation}" /></div>
       <div class="description small">${description}</div>
+      <p style="display: none;" class="copyToClipboard"><label>Tarot</label> ${card.name} ${orientation} - ${description}</p>
     </tarot>`
 }
 
