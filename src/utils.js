@@ -73,7 +73,7 @@ export async function loot () {
 export async function weather () {
   // because d6() is NOT zero based...
   const weather = [d6(), 'rain/fog/snow', 'storm', 'wind', 'hot/cold', 'clouds', 'sun']
-  const severity = [d6(), 'epic', 'severe', 'harsh', 'moderate ', 'mild', 'wonderful']
+  const severity = [d6(), 'epic', 'fierce', 'intense', 'moderate', 'gentle', 'perfect']
   // yeah, I know... but I wanted to retain the number too...
   return [severity[severity[0]], weather[weather[0]], `./assets/images/weather/${weather[0]}.svg`]
 }
