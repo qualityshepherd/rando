@@ -50,7 +50,7 @@ export async function randoTemplate () {
 //
 // sections...
 //
-function diceSection() {
+function diceSection () {
   return `
     <dice>
       <a class="reroll" title="refresh...">
@@ -61,7 +61,7 @@ function diceSection() {
     </dice>`
 }
 
-function tarotSection(card) {
+function tarotSection (card) {
   const orientation = card.reversed ? 'reversed' : 'upright'
   const description = card.reversed ? card.desc_reversed : card.desc_upright
   return `
@@ -72,7 +72,7 @@ function tarotSection(card) {
     </tarot>`
 }
 
-function symbolsSection({ iconUrl, weather, severity, arrow, yesNoAndBut }) {
+function symbolsSection ({ iconUrl, weather, severity, arrow, yesNoAndBut }) {
   return `
     <symbols>
       <img src="${iconUrl}" alt="${weather}" class="dim" title="${weather}" />
@@ -82,7 +82,7 @@ function symbolsSection({ iconUrl, weather, severity, arrow, yesNoAndBut }) {
     </symbols>`
 }
 
-function npcSection({ male, female, they, sur, role, epithet, trait, relationship, belief }) {
+function npcSection ({ male, female, they, sur, role, epithet, trait, relationship, belief }) {
   return `
     <div class="npc">
       <div class="name header">[${male}, ${female}, ${they}] ${sur}</div>
@@ -91,7 +91,7 @@ function npcSection({ male, female, they, sur, role, epithet, trait, relationshi
     </div>`
 }
 
-function sparksSection(sparks, threat, complication) {
+function sparksSection (sparks, threat, complication) {
   return `
     <div class="sparks header">Sparks <span class="copy dim small" title="copy sparks and tarot text" data-copy>✁</span></div>
     <div class="copyToClipboard"><label>Sparks</label> ${sparks}</div>
@@ -99,7 +99,7 @@ function sparksSection(sparks, threat, complication) {
     <div class="copyToClipboard"><label>Complication</label> ${complication}</div>`
 }
 
-function lootSection({ coinAmount, loot, apothecary, potion, magicItem, villageItem, dungeonItem, pocket, trade }) {
+function lootSection ({ coinAmount, loot, apothecary, potion, magicItem, villageItem, dungeonItem, pocket, trade }) {
   return `
     <div class="loot header">Loot</div>
     <div><label>Loot</label> ${coinAmount} coins and ${loot}</div>
@@ -111,13 +111,13 @@ function lootSection({ coinAmount, loot, apothecary, potion, magicItem, villageI
     <div><label>Potion</label> ${potion}</div>`
 }
 
-function situationSection(situation) {
+function situationSection (situation) {
   return `
     <div class="situation header">Situation</div>
     <div>${situation}</div>`
 }
 
-function footerSection() {
+function footerSection () {
   return `
     <footer>
       <div class="dim">
