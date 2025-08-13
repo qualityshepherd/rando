@@ -64,11 +64,17 @@ function diceSection () {
 function tarotSection (card) {
   const orientation = card.reversed ? 'reversed' : 'upright'
   const description = card.reversed ? card.desc_reversed : card.desc_upright
+
+  // select 3 of the descriptive words randomly...
+  const words = description.split(', ')
+  const shuffled = words.sort(() => 0.5 - Math.random())
+  const threeWords = shuffled.slice(0, 3).join(', ')
+
   return `
     <tarot>
       <div><img src="${card.url}" class="dim ${orientation}" alt="${card.name}" title="${card.name} ${orientation}" /></div>
-      <div class="description small">${description}</div>
-      <p style="display: none;" class="copyToClipboard"><label>Tarot</label> ${card.name} ${orientation} - ${description}</p>
+      <div class="description small">${threeWords}</div>
+      <p style="display: none;" class="copyToClipboard"><label>Tarot</label> ${card.name} ${orientation} - ${threeWords}</p>
     </tarot>`
 }
 
