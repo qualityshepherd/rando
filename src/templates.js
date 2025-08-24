@@ -11,7 +11,7 @@ export async function randoTemplate () {
     arrow,
     yesNoAndBut,
     sparks,
-    apothecary,
+    totem,
     situation
   ] = await Promise.all([
     r.names(),
@@ -23,7 +23,7 @@ export async function randoTemplate () {
     r.arrow(),
     r.yesNoAndBut(),
     r.sparks(),
-    r.apothecary(),
+    r.totem(),
     r.situation()
   ])
 
@@ -39,7 +39,7 @@ export async function randoTemplate () {
     <left>
       ${npcSection({ male, female, they, sur, role, epithet, trait, relationship, belief })}
       ${sparksSection(sparks, threat, complication)}
-      ${lootSection({ coinAmount, loot, apothecary, potion, magicItem, villageItem, dungeonItem, pocket, trade })}
+      ${lootSection({ coinAmount, loot, totem, potion, magicItem, villageItem, dungeonItem, pocket, trade })}
       ${situationSection(situation)}
     </left>
 
@@ -105,11 +105,11 @@ function sparksSection (sparks, threat, complication) {
     <div class="copyToClipboard"><label>Complication</label> ${complication}</div>`
 }
 
-function lootSection ({ coinAmount, loot, apothecary, potion, magicItem, villageItem, dungeonItem, pocket, trade }) {
+function lootSection ({ coinAmount, loot, totem, potion, magicItem, villageItem, dungeonItem, pocket, trade }) {
   return `
     <div class="loot header">Loot</div>
     <div><label>Loot</label> ${coinAmount} coins and ${loot}</div>
-    <div><label>Apothecary</label> ${apothecary}</div>
+    <div><label>Totem</label> ${totem}</div>
     <div><label>Found</label> ${villageItem}, ${dungeonItem}</div>
     <div><label>Pocket</label> ${pocket}</div>
     <div><label>Trade</label> ${trade}</div>

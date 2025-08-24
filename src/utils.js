@@ -29,9 +29,10 @@ export async function sparks () {
   return randSparks.join(', ')
 }
 
-export async function apothecary () {
-  const apothecary = await getJsonData('../data/apothecary.json')
-  return apothecary.random()
+// formerly Apothecary
+export async function totem () {
+  const totem = await getJsonData('../data/totem.json')
+  return totem.random()
 }
 
 export async function names () {
