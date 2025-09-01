@@ -127,8 +127,8 @@ function footerSection () {
   return `
     <footer>
       <div class="dim">
-        <b>RANDO</b> is a random generator for running TTRPGs
-        <br>by <a href="https://brine.dev"><b>brine</b></a>
+        <b>RANDO</b> is a random generator for TTRPGs
+        <br>written by <a href="https://brine.dev"><b>brine</b></a>
         <div class="kofi">
           <a href="https://ko-fi.com/brine">
             <img src="./assets/images/kofi.png" class="dim" title="buy me a coffee...">
