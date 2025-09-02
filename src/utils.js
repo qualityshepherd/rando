@@ -29,6 +29,17 @@ export async function sparks () {
   return randSparks.join(', ')
 }
 
+export async function room () {
+  const data = await getJsonData('../data/rooms.json')
+  let roomSparks = []
+  while (roomSparks.length < 4) {
+    roomSparks.push(data.random())
+    // eslint-disable-next-line no-new
+    roomSparks = [...new Set(roomSparks)] // removes dupes
+  }
+  return roomSparks.join(', ')
+}
+
 // formerly Apothecary
 export async function totem () {
   const totem = await getJsonData('../data/totem.json')

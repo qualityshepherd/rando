@@ -11,6 +11,7 @@ export async function randoTemplate () {
     arrow,
     yesNoAndBut,
     sparks,
+    room,
     totem,
     situation
   ] = await Promise.all([
@@ -23,6 +24,7 @@ export async function randoTemplate () {
     r.arrow(),
     r.yesNoAndBut(),
     r.sparks(),
+    r.room(),
     r.totem(),
     r.situation()
   ])
@@ -38,7 +40,7 @@ export async function randoTemplate () {
 
     <left>
       ${npcSection({ male, female, they, sur, role, epithet, trait, relationship, belief })}
-      ${sparksSection(sparks, threat, complication)}
+      ${sparksSection(sparks, room, threat, complication)}
       ${lootSection({ coinAmount, loot, totem, potion, magicItem, villageItem, dungeonItem, pocket, trade })}
       ${situationSection(situation)}
     </left>
@@ -97,10 +99,11 @@ function npcSection ({ male, female, they, sur, role, epithet, trait, relationsh
     </div>`
 }
 
-function sparksSection (sparks, threat, complication) {
+function sparksSection (sparks, room, threat, complication) {
   return `
     <div class="sparks header">Sparks <span class="copy dim small" title="copy sparks and tarot text" data-copy>✁</span></div>
-    <div class="copyToClipboard"><label>Sparks</label> ${sparks}</div>
+    <div class="copyToClipboard"><label>Seeds</label> ${sparks}</div>
+    <div class="copyToClipboard"><label>Room</label> ${room}</div>
     <div class="copyToClipboard"><label>Threat</label> ${threat}</div>
     <div class="copyToClipboard"><label>Complication</label> ${complication}</div>`
 }
