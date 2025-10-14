@@ -67,10 +67,10 @@ function tarotSection (card) {
   const orientation = card.reversed ? 'reversed' : 'upright'
   const description = card.reversed ? card.desc_reversed : card.desc_upright
 
-  // select 3 of the descriptive words randomly...
+  // select 4 of the descriptive words randomly...
   const words = description.split(', ')
   const shuffled = words.sort(() => 0.5 - Math.random())
-  const threeWords = shuffled.slice(0, 3).join(', ')
+  const threeWords = shuffled.slice(0, 4).join(', ')
 
   return `
     <tarot>
