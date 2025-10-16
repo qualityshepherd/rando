@@ -2,7 +2,7 @@
   {
     "name": "The Fool",
     "desc_upright": "leap, faith, adventure, begin, trust, innocence",
-    "desc_reversed": "reckless, naive, foolish, impulsive, careless, unprepared",
+    "desc_reversed": "reckless, naive, foolish, impulsive, cliff, unprepared",
     "url": "./assets/images/tarot/00_Fool.jpg"
   },
   {
@@ -26,7 +26,7 @@
   {
     "name": "The Emperor",
     "desc_upright": "authority, structure, stability, leadership, command, discipline",
-    "desc_reversed": "tyranny, domination, rigidity, oppression, iron-fist, inflexible",
+    "desc_reversed": "tyranny, domination, rigidity, oppression, iron-fist, tantrum",
     "url": "./assets/images/tarot/04_Emperor.jpg"
   },
   {
@@ -92,7 +92,7 @@
   {
     "name": "The Devil",
     "desc_upright": "temptation, bondage, materialism, obsession, addiction, chains",
-    "desc_reversed": "freedom, release, breaking, liberation, awakening, unshackled",
+    "desc_reversed": "freedom, release, breaking, liberation, awakening, choice",
     "url": "./assets/images/tarot/15_Devil.jpg"
   },
   {
@@ -104,7 +104,7 @@
   {
     "name": "The Star",
     "desc_upright": "hope, inspiration, healing, guidance, renewal, shimmer",
-    "desc_reversed": "despair, disconnection, faithless, hopeless, pessimism, darkness",
+    "desc_reversed": "despair, disconnection, faithless, abandoned, pessimism, shattered",
     "url": "./assets/images/tarot/17_Star.jpg"
   },
   {
@@ -146,13 +146,13 @@
   {
     "name": "Three of Wands",
     "desc_upright": "expansion, foresight, voyage, opportunities, leadership, growth",
-    "desc_reversed": "delays, frustration, obstacles, setbacks, myopic, impatience",
+    "desc_reversed": "delays, frustration, obstacles, setbacks, myopic, retreat",
     "url": "./assets/images/tarot/Wands03.jpg"
   },
   {
     "name": "Four of Wands",
     "desc_upright": "celebration, harmony, hearth, marriage, stability, community",
-    "desc_reversed": "instability, shattered, tension, discord, fractured, separation",
+    "desc_reversed": "instability, shattered, tension, discord, fractured, cancelled",
     "url": "./assets/images/tarot/Wands04.jpg"
   },
   {
@@ -176,7 +176,7 @@
   {
     "name": "Eight of Wands",
     "desc_upright": "speed, swift, momentum, flight, surge, communication",
-    "desc_reversed": "delays, frustration, resisting, crawling, slowness, stagnation",
+    "desc_reversed": "delays, frustration, resisting, crawling, missed, chaos",
     "url": "./assets/images/tarot/Wands08.jpg"
   },
   {
@@ -235,7 +235,7 @@
   },
   {
     "name": "Four of Cups",
-    "desc_upright": "meditation, contemplation, apathy, brooding, boredom, discontent",
+    "desc_upright": "meditation, apathy, brooding, withdrawal, boredom, discontent",
     "desc_reversed": "awareness, opportunities, motivation, awakening, engagement, gratitude",
     "url": "./assets/images/tarot/Cups04.jpg"
   },
@@ -272,7 +272,7 @@
   {
     "name": "Ten of Cups",
     "desc_upright": "happiness, love, belonging, harmony, alignment, bliss",
-    "desc_reversed": "disconnection, values, fractured, disharmony, broken, discord",
+    "desc_reversed": "disconnection, values, fractured, disharmony, broken, longing",
     "url": "./assets/images/tarot/Cups10.jpg"
   },
   {
@@ -307,7 +307,7 @@
   },
   {
     "name": "Two of Swords",
-    "desc_upright": "crossroads, stalemate, indecision, blindfolded, avoidance, frozen",
+    "desc_upright": "crossroads, stalemate, blindfolded, avoidance, frozen, denial",
     "desc_reversed": "confusion, overload, overwhelmed, paralysis, denial, drowning",
     "url": "./assets/images/tarot/Swords02.jpg"
   },
@@ -325,7 +325,7 @@
   },
   {
     "name": "Five of Swords",
-    "desc_upright": "conflict, bitter, competition, defeat, hostility, hollow-victory",
+    "desc_upright": "conflict, bitter, defeat, hostility, hollow-victory, pyrrhic",
     "desc_reversed": "reconciliation, amends, resentment, revenge, forgiveness, resolution",
     "url": "./assets/images/tarot/Swords05.jpg"
   },
@@ -379,13 +379,13 @@
   },
   {
     "name": "King of Swords",
-    "desc_upright": "authority, intellect, truth, justice, rational, disciplined",
+    "desc_upright": "authority, intellect, truth, verdict, rational, disciplined",
     "desc_reversed": "manipulative, cruel, abusive, tyrannical, ruthless, cold",
     "url": "./assets/images/tarot/Swords14.jpg"
   },
   {
     "name": "Ace of Pentacles",
-    "desc_upright": "opportunity, manifestation, abundance, prosperity, seed, windfall",
+    "desc_upright": "opportunity, manifestation, abundance, prosperity, seed, gift",
     "desc_reversed": "missed, squandered, greed, poor-planning, scarcity, loss",
     "url": "./assets/images/tarot/Pents01.jpg"
   },
@@ -397,7 +397,7 @@
   },
   {
     "name": "Three of Pentacles",
-    "desc_upright": "teamwork, collaboration, apprentice, building, crafting, implementation",
+    "desc_upright": "teamwork, collaboration, apprentice, building, crafting, mastery",
     "desc_reversed": "disharmony, competitive, ego, solitary, discord, clashing",
     "url": "./assets/images/tarot/Pents03.jpg"
   },
