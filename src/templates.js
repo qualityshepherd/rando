@@ -55,9 +55,9 @@ export async function randoTemplate () {
 function diceSection () {
   return `
     <dice>
-      <a class="reroll" title="refresh...">
+      <a class="dice" title="refresh...">
         ${[...Array(3)].map(() =>
-          `<img src="./assets/images/dice/${r.d6()}.svg" class="dim" title="click to re-roll" />`
+          `<img src="./assets/images/dice/${r.d6()}.svg" title="click to re-roll" />`
         ).join('')}
       </a>
     </dice>`

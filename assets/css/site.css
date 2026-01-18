@@ -48,11 +48,9 @@
   --bg-darker: #333333;
   --bg-darkest: #292929;
   --text: #A0A0A2;
-  --header: #9BADB8;  /* was #79808A */
-  --alt1: #8FB3B0;    /* was #627A78 */
-  --alt1: #627A78;
+  --alt1: #7F90A0;
   --alt2: #79808A;
-  --alt3: #C9A887;    /* was #957A65 */
+  --alt3: #8495A0;
   --border: #4B4B4B;
   --code: #414141;
   --header-font: "header";
@@ -86,6 +84,7 @@ main {
 dice img {
   width: 50px;
   padding: 5px;
+  filter: invert(56%) sepia(8%) saturate(624%) hue-rotate(169deg) brightness(88%) contrast(90%);
 }
 
 right {
@@ -104,6 +103,7 @@ tarot img {
 
 tarot .description {
   font-style:italic;
+  color: var(--alt1);
 }
 
 .reversed {
@@ -201,7 +201,7 @@ b, strong {
 
 label {
   background-color: var(--code);
-  color: var(--header);
+  color: var(--alt3);
   padding:0 5px;
   text-transform:uppercase;
   font-size:75%;
@@ -220,7 +220,7 @@ code {
 }
 
 a {
-  color: var(--header);
+  color: var(--alt3);
   text-decoration: none;
   border-bottom: 1.2px solid var(--border);
 }
@@ -256,7 +256,7 @@ h5,
 h6 {
   margin: 0;
   font-weight: 700;
-  color: var(--header);
+  color: var(--alt3);
   line-height: 150%;
   font-family: var(--header-font);
 }
@@ -264,7 +264,7 @@ h6 {
 h2 {
   font-size: 275%;
   text-align: center;
-  color: var(--header);
+  color: var(--alt3);
   margin-bottom: 1.2rem;
   text-transform: uppercase;
   font-family: var(--header-font);
@@ -280,7 +280,7 @@ h3 {
 h4 {
   margin-top: 30px;
   font-size: 130%;
-  color: var(--header);
+  color: var(--alt3);
 }
 
 h5 {
