@@ -48,10 +48,11 @@
   --bg-darker: #333333;
   --bg-darkest: #292929;
   --text: #A0A0A2;
-  --header: #79808A;
+  --header: #9BADB8;  /* was #79808A */
+  --alt1: #8FB3B0;    /* was #627A78 */
   --alt1: #627A78;
   --alt2: #79808A;
-  --alt3: #957A65;
+  --alt3: #C9A887;    /* was #957A65 */
   --border: #4B4B4B;
   --code: #414141;
   --header-font: "header";
@@ -204,6 +205,12 @@ label {
   padding:0 5px;
   text-transform:uppercase;
   font-size:75%;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid #C9A887;
+  outline-offset: 2px;
 }
 
 code {
