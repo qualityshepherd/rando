@@ -6,6 +6,6 @@ export const elements = {
     return document.querySelector('[data-copy]')
   },
   get rerollButton () {
-    return document.querySelector('.reroll')
+    return document.querySelector('.dice')
   }
 }
