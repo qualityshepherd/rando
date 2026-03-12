@@ -1,0 +1,470 @@
+[
+  {
+    "name": "The Fool",
+    "desc_upright": "leap, faith, adventure, begin, trust, innocence",
+    "desc_reversed": "reckless, naive, foolish, impulsive, cliff, unprepared",
+    "url": "./assets/images/tarot/00_Fool.jpg"
+  },
+  {
+    "name": "The Magician",
+    "desc_upright": "manifest, willpower, focus, skill, creation, power",
+    "desc_reversed": "manipulation, trickery, deception, illusion, sleight, cunning",
+    "url": "./assets/images/tarot/01_Magician.jpg"
+  },
+  {
+    "name": "The High Priestess",
+    "desc_upright": "intuition, mystery, wisdom, secrets, shadow, knowing",
+    "desc_reversed": "hidden, blocked, severed, silenced, repressed, veiled",
+    "url": "./assets/images/tarot/02_High_Priestess.jpg"
+  },
+  {
+    "name": "The Empress",
+    "desc_upright": "abundance, fertility, creativity, nurturing, bloom, motherhood",
+    "desc_reversed": "dependence, smothering, emptiness, neglect, withered, barren",
+    "url": "./assets/images/tarot/03_Empress.jpg"
+  },
+  {
+    "name": "The Emperor",
+    "desc_upright": "authority, structure, stability, leadership, command, discipline",
+    "desc_reversed": "tyranny, domination, rigidity, oppression, iron-fist, tantrum",
+    "url": "./assets/images/tarot/04_Emperor.jpg"
+  },
+  {
+    "name": "The Hierophant",
+    "desc_upright": "tradition, wisdom, teaching, ritual, guidance, conformity",
+    "desc_reversed": "rebellion, restriction, dogma, heresy, defiance, orthodoxy",
+    "url": "./assets/images/tarot/05_Hierophant.jpg"
+  },
+  {
+    "name": "The Lovers",
+    "desc_upright": "love, harmony, union, choice, partnership, devotion",
+    "desc_reversed": "separation, discord, temptation, imbalance, betrayal, mistrust",
+    "url": "./assets/images/tarot/06_Lovers.jpg"
+  },
+  {
+    "name": "The Chariot",
+    "desc_upright": "determination, willpower, control, victory, charge, triumph",
+    "desc_reversed": "scattered, unfocused, aggression, defeated, rudderless, chaos",
+    "url": "./assets/images/tarot/07_Chariot.jpg"
+  },
+  {
+    "name": "Strength",
+    "desc_upright": "courage, compassion, patience, fortitude, gentleness, mastery",
+    "desc_reversed": "weakness, doubt, insecurity, cowardice, brutality, force",
+    "url": "./assets/images/tarot/08_Strength.jpg"
+  },
+  {
+    "name": "The Hermit",
+    "desc_upright": "introspection, solitude, wisdom, guidance, lantern, searching",
+    "desc_reversed": "isolation, withdrawal, paranoia, loneliness, lost, stubborn",
+    "url": "./assets/images/tarot/09_Hermit.jpg"
+  },
+  {
+    "name": "Wheel of Fortune",
+    "desc_upright": "change, cycles, luck, destiny, karma, turning",
+    "desc_reversed": "setback, misfortune, resistance, stagnation, cursed, repetition",
+    "url": "./assets/images/tarot/10_Wheel_of_Fortune.jpg"
+  },
+  {
+    "name": "Justice",
+    "desc_upright": "balance, fairness, truth, accountability, karma, consequences",
+    "desc_reversed": "injustice, rigged, bias, dishonesty, scapegoat, corruption",
+    "url": "./assets/images/tarot/11_Justice.jpg"
+  },
+  {
+    "name": "The Hanged Man",
+    "desc_upright": "suspension, sacrifice, perspective, limbo, enlightenment, surrender",
+    "desc_reversed": "stalling, indecision, martyrdom, pointless, stubborn, resistance",
+    "url": "./assets/images/tarot/12_Hanged_Man.jpg"
+  },
+  {
+    "name": "Death",
+    "desc_upright": "transformation, endings, rebirth, release, shedding, change",
+    "desc_reversed": "resistance, stagnation, dread, clinging, avoiding, decay",
+    "url": "./assets/images/tarot/13_Death.jpg"
+  },
+  {
+    "name": "Temperance",
+    "desc_upright": "balance, moderation, harmony, patience, alchemy, blending",
+    "desc_reversed": "imbalance, excess, discord, impatience, disruption, extremes",
+    "url": "./assets/images/tarot/14_Temperance.jpg"
+  },
+  {
+    "name": "The Devil",
+    "desc_upright": "temptation, bondage, materialism, obsession, addiction, chains",
+    "desc_reversed": "freedom, release, breaking, liberation, awakening, choice",
+    "url": "./assets/images/tarot/15_Devil.jpg"
+  },
+  {
+    "name": "The Tower",
+    "desc_upright": "upheaval, destruction, revelation, awakening, lightning, collapse",
+    "desc_reversed": "avoiding, delay, resistance, crumbling, transformation, rebuilding",
+    "url": "./assets/images/tarot/16_Tower.jpg"
+  },
+  {
+    "name": "The Star",
+    "desc_upright": "hope, inspiration, healing, guidance, renewal, shimmer",
+    "desc_reversed": "despair, disconnection, faithless, abandoned, pessimism, shattered",
+    "url": "./assets/images/tarot/17_Star.jpg"
+  },
+  {
+    "name": "The Moon",
+    "desc_upright": "illusion, intuition, dreams, subconscious, mystery, tides",
+    "desc_reversed": "clarity, truth, revealed, piercing, illumination, awakening",
+    "url": "./assets/images/tarot/18_Moon.jpg"
+  },
+  {
+    "name": "The Sun",
+    "desc_upright": "joy, success, vitality, radiance, achievement, enlightenment",
+    "desc_reversed": "pessimism, eclipse, delayed, clouded, diminished, fading",
+    "url": "./assets/images/tarot/19_Sun.jpg"
+  },
+  {
+    "name": "Judgement",
+    "desc_upright": "rebirth, awakening, absolution, calling, reckoning, renewal",
+    "desc_reversed": "doubt, criticism, avoidance, denial, regret, stagnation",
+    "url": "./assets/images/tarot/20_Judgement.jpg"
+  },
+  {
+    "name": "The World",
+    "desc_upright": "completion, fulfillment, accomplishment, wholeness, integration, crowned",
+    "desc_reversed": "incomplete, unfulfilled, lacking, unfinished, seeking, wandering",
+    "url": "./assets/images/tarot/21_World.jpg"
+  },
+  {
+    "name": "Ace of Wands",
+    "desc_upright": "inspiration, creativity, spark, potential, ignition, opportunity",
+    "desc_reversed": "delays, snuffed, motivation, false-starts, flicker, stagnation",
+    "url": "./assets/images/tarot/Wands01.jpg"
+  },
+  {
+    "name": "Two of Wands",
+    "desc_upright": "planning, horizon, progress, crossroads, power, expansion",
+    "desc_reversed": "hesitation, fear, unknown, safety, shackled, doubt",
+    "url": "./assets/images/tarot/Wands02.jpg"
+  },
+  {
+    "name": "Three of Wands",
+    "desc_upright": "expansion, foresight, voyage, opportunities, leadership, growth",
+    "desc_reversed": "delays, frustration, obstacles, setbacks, myopic, retreat",
+    "url": "./assets/images/tarot/Wands03.jpg"
+  },
+  {
+    "name": "Four of Wands",
+    "desc_upright": "celebration, harmony, hearth, marriage, stability, community",
+    "desc_reversed": "instability, shattered, tension, discord, fractured, cancelled",
+    "url": "./assets/images/tarot/Wands04.jpg"
+  },
+  {
+    "name": "Five of Wands",
+    "desc_upright": "conflict, competition, sport, struggle, adrenaline, rivalry",
+    "desc_reversed": "truce, resolution, cooperation, peace, compromise, harmony",
+    "url": "./assets/images/tarot/Wands05.jpg"
+  },
+  {
+    "name": "Six of Wands",
+    "desc_upright": "victory, success, recognition, swagger, triumph, parade",
+    "desc_reversed": "private, doubt, unrecognized, modest, delayed, humble",
+    "url": "./assets/images/tarot/Wands06.jpg"
+  },
+  {
+    "name": "Seven of Wands",
+    "desc_upright": "perseverance, defensive, holdfast, challenge, defiant, courage",
+    "desc_reversed": "exhaustion, surrender, overwhelmed, defeated, retreat, relief",
+    "url": "./assets/images/tarot/Wands07.jpg"
+  },
+  {
+    "name": "Eight of Wands",
+    "desc_upright": "speed, swift, momentum, flight, surge, communication",
+    "desc_reversed": "delays, frustration, resisting, crawling, missed, chaos",
+    "url": "./assets/images/tarot/Wands08.jpg"
+  },
+  {
+    "name": "Nine of Wands",
+    "desc_upright": "resilience, grit, persistence, boundaries, determination, scarred",
+    "desc_reversed": "exhaustion, struggle, overwhelmed, paranoia, stubborn, collapse",
+    "url": "./assets/images/tarot/Wands09.jpg"
+  },
+  {
+    "name": "Ten of Wands",
+    "desc_upright": "burden, responsibility, overloaded, hardship, perseverance, carrying",
+    "desc_reversed": "delegation, release, burnout, overwhelm, dropping, lightening",
+    "url": "./assets/images/tarot/Wands10.jpg"
+  },
+  {
+    "name": "Page of Wands",
+    "desc_upright": "inspiration, ideas, discovery, potential, enthusiasm, messenger",
+    "desc_reversed": "scattered, restless, dawdling, immaturity, distraction, unfocused",
+    "url": "./assets/images/tarot/Wands11.jpg"
+  },
+  {
+    "name": "Knight of Wands",
+    "desc_upright": "action, adventure, fearless, blazing, impulsive, charging",
+    "desc_reversed": "anger, reckless, haste, impatience, aggression, destructive",
+    "url": "./assets/images/tarot/Wands12.jpg"
+  },
+  {
+    "name": "Queen of Wands",
+    "desc_upright": "courage, confidence, independence, magnetic, determination, charisma",
+    "desc_reversed": "insecurity, introverted, jealousy, volatile, vindictive, selfish",
+    "url": "./assets/images/tarot/Wands13.jpg"
+  },
+  {
+    "name": "King of Wands",
+    "desc_upright": "leadership, vision, entrepreneur, honor, inspiration, commander",
+    "desc_reversed": "impulsive, ruthless, demanding, forceful, tyrant, arrogance",
+    "url": "./assets/images/tarot/Wands14.jpg"
+  },
+  {
+    "name": "Ace of Cups",
+    "desc_upright": "love, overflowing, compassion, creativity, spiritual, emotion",
+    "desc_reversed": "emptiness, repressed, blocked, parched, withdrawal, numb",
+    "url": "./assets/images/tarot/Cups01.jpg"
+  },
+  {
+    "name": "Two of Cups",
+    "desc_upright": "love, partnership, attraction, entwined, harmony, connection",
+    "desc_reversed": "breakup, disharmony, mistrust, separation, imbalance, severed",
+    "url": "./assets/images/tarot/Cups02.jpg"
+  },
+  {
+    "name": "Three of Cups",
+    "desc_upright": "celebration, friendship, toasting, revelry, sisterhood, overflow",
+    "desc_reversed": "independence, solitude, excess, gossip, exclusion, hangover",
+    "url": "./assets/images/tarot/Cups03.jpg"
+  },
+  {
+    "name": "Four of Cups",
+    "desc_upright": "meditation, apathy, brooding, withdrawal, boredom, discontent",
+    "desc_reversed": "awareness, opportunities, motivation, awakening, engagement, gratitude",
+    "url": "./assets/images/tarot/Cups04.jpg"
+  },
+  {
+    "name": "Five of Cups",
+    "desc_upright": "regret, failure, disappointment, mourning, loss, grief",
+    "desc_reversed": "acceptance, forgiveness, healing, optimism, recovery, resilience",
+    "url": "./assets/images/tarot/Cups05.jpg"
+  },
+  {
+    "name": "Six of Cups",
+    "desc_upright": "nostalgia, childhood, memories, innocence, sweetness, reunion",
+    "desc_reversed": "stuck, forgiveness, maturity, independence, releasing, forward",
+    "url": "./assets/images/tarot/Cups06.jpg"
+  },
+  {
+    "name": "Seven of Cups",
+    "desc_upright": "opportunities, choices, wishful, mirage, illusion, fantasy",
+    "desc_reversed": "alignment, values, focus, clarity, determination, grounded",
+    "url": "./assets/images/tarot/Cups07.jpg"
+  },
+  {
+    "name": "Eight of Cups",
+    "desc_upright": "disappointment, abandonment, withdrawal, wandering, seeking, departure",
+    "desc_reversed": "perseverance, indecision, drifting, stagnation, avoidance, paralyzed",
+    "url": "./assets/images/tarot/Cups08.jpg"
+  },
+  {
+    "name": "Nine of Cups",
+    "desc_upright": "contentment, satisfaction, gratitude, fulfilled, pleasure, abundance",
+    "desc_reversed": "hollow, indulgence, greed, smug, isolation, superficial",
+    "url": "./assets/images/tarot/Cups09.jpg"
+  },
+  {
+    "name": "Ten of Cups",
+    "desc_upright": "happiness, love, belonging, harmony, alignment, bliss",
+    "desc_reversed": "disconnection, values, fractured, disharmony, broken, longing",
+    "url": "./assets/images/tarot/Cups10.jpg"
+  },
+  {
+    "name": "Page of Cups",
+    "desc_upright": "creativity, opportunities, messages, curiosity, wonder, intuition",
+    "desc_reversed": "blocked, doubting, sulking, immaturity, emotional, moody",
+    "url": "./assets/images/tarot/Cups11.jpg"
+  },
+  {
+    "name": "Knight of Cups",
+    "desc_upright": "creativity, romance, charm, dreamer, beauty, idealist",
+    "desc_reversed": "unrealistic, jealousy, moody, disappointment, tantrum, volatile",
+    "url": "./assets/images/tarot/Cups12.jpg"
+  },
+  {
+    "name": "Queen of Cups",
+    "desc_upright": "compassionate, caring, serene, intuitive, healer, empathy",
+    "desc_reversed": "codependent, martyr, insecurity, drowning, boundaries, dramatic",
+    "url": "./assets/images/tarot/Cups13.jpg"
+  },
+  {
+    "name": "King of Cups",
+    "desc_upright": "balanced, compassionate, generous, diplomatic, devotion, wise",
+    "desc_reversed": "moody, manipulation, volatile, suppressed, cold, detached",
+    "url": "./assets/images/tarot/Cups14.jpg"
+  },
+  {
+    "name": "Ace of Swords",
+    "desc_upright": "clarity, breakthrough, insight, truth, piercing, revelation",
+    "desc_reversed": "confusion, clouded, miscommunication, chaos, blocked, muddled",
+    "url": "./assets/images/tarot/Swords01.jpg"
+  },
+  {
+    "name": "Two of Swords",
+    "desc_upright": "crossroads, stalemate, blindfolded, avoidance, frozen, denial",
+    "desc_reversed": "confusion, overload, overwhelmed, paralysis, denial, drowning",
+    "url": "./assets/images/tarot/Swords02.jpg"
+  },
+  {
+    "name": "Three of Swords",
+    "desc_upright": "heartbreak, betrayal, separation, pierced, sorrow, grief",
+    "desc_reversed": "healing, forgiveness, optimism, recovery, mending, release",
+    "url": "./assets/images/tarot/Swords03.jpg"
+  },
+  {
+    "name": "Four of Swords",
+    "desc_upright": "rest, stillness, meditation, vigil, recovery, truce",
+    "desc_reversed": "restless, burnout, stagnation, awakening, stirring, energy",
+    "url": "./assets/images/tarot/Swords04.jpg"
+  },
+  {
+    "name": "Five of Swords",
+    "desc_upright": "conflict, bitter, defeat, hostility, hollow-victory, pyrrhic",
+    "desc_reversed": "reconciliation, amends, resentment, revenge, forgiveness, resolution",
+    "url": "./assets/images/tarot/Swords05.jpg"
+  },
+  {
+    "name": "Six of Swords",
+    "desc_upright": "transition, passage, moving, exile, progress, calmer",
+    "desc_reversed": "resistance, baggage, anchored, unfinished, regret, trapped",
+    "url": "./assets/images/tarot/Swords06.jpg"
+  },
+  {
+    "name": "Seven of Swords",
+    "desc_upright": "betrayal, deception, theft, stealth, cunning, scheme",
+    "desc_reversed": "confession, honesty, guilt, exposed, clean, caught",
+    "url": "./assets/images/tarot/Swords07.jpg"
+  },
+  {
+    "name": "Eight of Swords",
+    "desc_upright": "restriction, imprisoned, bound, victim, trapped, helpless",
+    "desc_reversed": "freedom, empowerment, release, breakthrough, courage, liberation",
+    "url": "./assets/images/tarot/Swords08.jpg"
+  },
+  {
+    "name": "Nine of Swords",
+    "desc_upright": "anxiety, worry, dread, nightmares, torment, isolation",
+    "desc_reversed": "recovery, hope, healing, support, resilience, breakthrough",
+    "url": "./assets/images/tarot/Swords09.jpg"
+  },
+  {
+    "name": "Ten of Swords",
+    "desc_upright": "betrayal, endings, ruin, crisis, defeat, backstabbed",
+    "desc_reversed": "recovery, regeneration, healing, resilience, survival, renewal",
+    "url": "./assets/images/tarot/Swords10.jpg"
+  },
+  {
+    "name": "Page of Swords",
+    "desc_upright": "curiosity, communication, vigilant, learning, sharp, messages",
+    "desc_reversed": "scattered, gossip, lies, impulsive, hasty, careless",
+    "url": "./assets/images/tarot/Swords11.jpg"
+  },
+  {
+    "name": "Knight of Swords",
+    "desc_upright": "action, ambition, driven, razor-sharp, focus, swift",
+    "desc_reversed": "reckless, impulsive, burnout, impatience, aggression, scattered",
+    "url": "./assets/images/tarot/Swords12.jpg"
+  },
+  {
+    "name": "Queen of Swords",
+    "desc_upright": "independent, judgment, boundaries, sharp-tongued, clarity, honest",
+    "desc_reversed": "harsh, bitter, cruel, cold, cutting, critical",
+    "url": "./assets/images/tarot/Swords13.jpg"
+  },
+  {
+    "name": "King of Swords",
+    "desc_upright": "authority, intellect, truth, verdict, rational, disciplined",
+    "desc_reversed": "manipulative, cruel, abusive, tyrannical, ruthless, cold",
+    "url": "./assets/images/tarot/Swords14.jpg"
+  },
+  {
+    "name": "Ace of Pentacles",
+    "desc_upright": "opportunity, manifestation, abundance, prosperity, seed, gift",
+    "desc_reversed": "missed, squandered, greed, poor-planning, scarcity, loss",
+    "url": "./assets/images/tarot/Pents01.jpg"
+  },
+  {
+    "name": "Two of Pentacles",
+    "desc_upright": "balance, juggling, adaptability, resourceful, dancing, flexibility",
+    "desc_reversed": "overwhelmed, chaos, imbalanced, scattered, stress, dropping",
+    "url": "./assets/images/tarot/Pents02.jpg"
+  },
+  {
+    "name": "Three of Pentacles",
+    "desc_upright": "teamwork, collaboration, apprentice, building, crafting, mastery",
+    "desc_reversed": "disharmony, competitive, ego, solitary, discord, clashing",
+    "url": "./assets/images/tarot/Pents03.jpg"
+  },
+  {
+    "name": "Four of Pentacles",
+    "desc_upright": "hoarding, security, clutching, scarcity, control, fortress",
+    "desc_reversed": "generosity, sharing, spending, release, letting-go, open-handed",
+    "url": "./assets/images/tarot/Pents04.jpg"
+  },
+  {
+    "name": "Five of Pentacles",
+    "desc_upright": "poverty, loss, hardship, hunger, struggle, outcast",
+    "desc_reversed": "recovery, charity, improvement, assistance, hope, shelter",
+    "url": "./assets/images/tarot/Pents05.jpg"
+  },
+  {
+    "name": "Six of Pentacles",
+    "desc_upright": "giving, receiving, sharing, wealth, generosity, charity",
+    "desc_reversed": "debt, strings-attached, inequality, exploitation, power-imbalance, selfish",
+    "url": "./assets/images/tarot/Pents06.jpg"
+  },
+  {
+    "name": "Seven of Pentacles",
+    "desc_upright": "investment, perseverance, patience, harvest, sustainable, waiting",
+    "desc_reversed": "impatience, poor-investment, barren, short-term, frustration, wasted",
+    "url": "./assets/images/tarot/Pents07.jpg"
+  },
+  {
+    "name": "Eight of Pentacles",
+    "desc_upright": "apprentice, mastery, skill, dedication, craftsmanship, refinement",
+    "desc_reversed": "unfocused, shoddy, shortcuts, slipshod, perfectionism, mediocre",
+    "url": "./assets/images/tarot/Pents08.jpg"
+  },
+  {
+    "name": "Nine of Pentacles",
+    "desc_upright": "abundance, luxury, independence, self-made, accomplishment, garden",
+    "desc_reversed": "dependence, setbacks, materialism, overworking, hollow, shallow",
+    "url": "./assets/images/tarot/Pents09.jpg"
+  },
+  {
+    "name": "Ten of Pentacles",
+    "desc_upright": "wealth, legacy, dynasty, tradition, inheritance, roots",
+    "desc_reversed": "family-strife, financial-loss, fleeting, instability, crumbling, divided",
+    "url": "./assets/images/tarot/Pents10.jpg"
+  },
+  {
+    "name": "Page of Pentacles",
+    "desc_upright": "learning, studying, opportunity, manifestation, planning, seedling",
+    "desc_reversed": "procrastination, stalled, poor-planning, distracted, dreaming, unrealistic",
+    "url": "./assets/images/tarot/Pents11.jpg"
+  },
+  {
+    "name": "Knight of Pentacles",
+    "desc_upright": "dedicated, productivity, routine, methodical, steadfast, grounded",
+    "desc_reversed": "laziness, boredom, frustration, stagnation, workaholic, obsessive",
+    "url": "./assets/images/tarot/Pents12.jpg"
+  },
+  {
+    "name": "Queen of Pentacles",
+    "desc_upright": "nurturing, practical, provider, generous, grounded, abundant",
+    "desc_reversed": "selfish, jealous, smothering, materialistic, neglectful, chaotic",
+    "url": "./assets/images/tarot/Pents13.jpg"
+  },
+  {
+    "name": "King of Pentacles",
+    "desc_upright": "success, abundance, discipline, security, generous, empire",
+    "desc_reversed": "greed, materialism, corruption, stubborn, possessive, controlling",
+    "url": "./assets/images/tarot/Pents14.jpg"
+  }
+]

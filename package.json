@@ -1,0 +1,23 @@
+{
+  "name": "rando",
+  "description": "A random generator for ttrpg gms",
+  "version": "2.0.0",
+  "type": "module",
+  "author": "brine",
+  "license": "MIT",
+  "standard": {
+    "env": [
+      "browser"
+    ]
+  },
+  "scripts": {
+    "test": "node --test --test-reporter spec test/unit/**/*.test.js",
+    "server": "sirv . --port 4242 --single --quiet",
+    "pretty": "npx standard --fix",
+    "purge": "curl -X POST \"https://api.cloudflare.com/client/v4/zones/$BRINE_TOKEN/purge_cache\" -H \"Authorization: Bearer $BEARER\" -H \"Content-Type: application/json\" --data '{\"purge_everything\":true}'"
+  },
+  "devDependencies": {
+    "puppeteer": "^24.3.1",
+    "sirv-cli": "^3.0.0"
+  }
+}
