@@ -1,4 +1,4 @@
-[![Deploy Rando](https://github.com/qualityshepherd/rando/actions/workflows/deploy2pages.yml/badge.svg)](https://github.com/qualityshepherd/rando/actions/workflows/deploy2pages.yml)
+[![Deploy Rando](https://github.com/qualityshepherd/rando/actions/workflows/deploy.yml/badge.svg?branch=main)](https://github.com/qualityshepherd/rando/actions/workflows/deploy.yml)
 
 # RANDO
 
