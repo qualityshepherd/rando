@@ -282,6 +282,7 @@ export async function trackHit (req, env) {
   const ip = req.headers.get('cf-connecting-ip') || ''
   const ua = req.headers.get('user-agent') || ''
   const asn = req.cf?.asn ?? null
+  console.log('cf:', JSON.stringify(req.cf))
   const kind = classifyHit(path, ua, asn)
   if (path.length > 500) return
 

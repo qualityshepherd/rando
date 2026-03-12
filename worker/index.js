@@ -16,6 +16,11 @@ export default {
       return handleAnalytics(req, env, url.hostname)
     }
 
+    if (path === '/api/hit' && req.method === 'POST') {
+      ctx.waitUntil(trackHit(req, env))
+      return new Response('ok')
+    }
+
     ctx.waitUntil(trackHit(req, env))
 
     return env.ASSETS.fetch(req)

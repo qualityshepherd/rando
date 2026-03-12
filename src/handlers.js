@@ -22,6 +22,7 @@ const routeHandlers = {
 export function handleRouting () {
   const { route, params } = getRouteParams()
   console.log(route, params)
+  navigator.sendBeacon('/api/hit?path=' + encodeURIComponent('/' + route.replace(/^#\/?/, '')))
   const handler = routeHandlers[route] || routeHandlers.default
   handler({ params })
 }
