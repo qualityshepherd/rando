@@ -180,6 +180,7 @@ const nextMidnight = () => {
   return d.getTime()
 }
 
+// fucking classes... but DO requires one. Gross.
 export class AnalyticsDO {
   constructor (state, env) {
     this.state = state
