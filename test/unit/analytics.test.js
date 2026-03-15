@@ -14,6 +14,13 @@ test('Analytics: isBot returns false for normal path', t => { t.falsy(isBot('/po
 test('Analytics: isBot returns false for root', t => { t.falsy(isBot('/')) })
 test('Analytics: isBot is case insensitive', t => { t.ok(isBot('/XMLRPC.PHP')) })
 test('Analytics: isBot allows real browser UA', t => { t.falsy(isBot('/', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)')) })
+test('isBot: detects /proc/ prefix', t => { t.ok(isBot('/proc/self/environ')) })
+test('isBot: detects /etc/ prefix', t => { t.ok(isBot('/etc/passwd')) })
+test('isBot: detects /wp- prefix', t => { t.ok(isBot('/wp-login')) })
+test('isBot: detects /register prefix', t => { t.ok(isBot('/register')) })
+test('isBot: detects /checkout prefix', t => { t.ok(isBot('/checkout')) })
+test('isBot: detects /account prefix', t => { t.ok(isBot('/account/settings')) })
+test('isBot: does not flag /processing as a prefix match', t => { t.falsy(isBot('/processing')) })
 
 // .DS_Store case-insensitive bug
 test('Analytics: isBot detects .DS_Store anywhere in path', t => { t.ok(isBot('/posts/.DS_Store')) })
@@ -67,6 +74,14 @@ test('buildHit: includes path and ip', t => {
   t.is(hit.path, '/posts/foo')
   t.is(hit.ip, 'hashval')
 })
+test('buildHit: includes asn from cf', t => {
+  const hit = buildHit('/post', { asn: 14061 }, 'abc')
+  t.is(hit.asn, 14061)
+})
+test('buildHit: defaults asn to null', t => {
+  const hit = buildHit('/post', {}, 'abc')
+  t.is(hit.asn, null)
+})
 
 // freshDay
 test('freshDay: returns correct shape', t => {
@@ -80,11 +95,17 @@ test('freshDay: returns correct shape', t => {
   t.ok('byCountry' in day)
   t.ok('byCity' in day)
   t.ok('byReferrer' in day)
+  t.ok('byPathBots' in day)
 })
 test('freshDay: no region in shape', t => {
   const day = freshDay('2026-03-03')
   t.ok(!('region' in day))
   t.ok(!('byRegion' in day))
+})
+test('freshDay: has recentBots array', t => {
+  const day = freshDay('2026-03-03')
+  t.ok(Array.isArray(day.recentBots))
+  t.is(day.recentBots.length, 0)
 })
 
 // loadDay — pure, one job: load stored or return fresh. NEVER resets.
@@ -183,10 +204,50 @@ test('applyHit: adds to recentHits', t => {
   t.is(day.recentHits.length, 1)
   t.is(day.recentHits[0].path, '/foo')
 })
-
 test('applyHit: bots do not add to recentHits', t => {
   const { day } = applyHit(freshDay('2026-03-03'), new Set(), { bot: true })
   t.is(day.recentHits.length, 0)
+})
+
+// bot tracking
+test('applyHit: bot hits add to recentBots', t => {
+  const { day } = applyHit(freshDay('2026-03-03'), new Set(), { bot: true, path: '/old/archive.zip', country: 'NL', city: 'Lelystad', ip: 'abc123', asn: 14061, ts: Date.now() })
+  t.is(day.recentBots.length, 1)
+  t.is(day.recentBots[0].path, '/old/archive.zip')
+  t.is(day.recentBots[0].asn, 14061)
+})
+test('applyHit: bot hits store ip hash in recentBots', t => {
+  const { day } = applyHit(freshDay('2026-03-03'), new Set(), { bot: true, path: '/wp-login.php', ip: 'deadbeef', asn: 8075, ts: Date.now() })
+  t.is(day.recentBots[0].ip, 'deadbeef')
+})
+test('applyHit: bot hits without path use ?', t => {
+  const { day } = applyHit(freshDay('2026-03-03'), new Set(), { bot: true })
+  t.is(day.recentBots[0].path, '?')
+})
+test('applyHit: bot hits increment byPathBots with asn', t => {
+  const { day } = applyHit(freshDay('2026-03-03'), new Set(), { bot: true, path: '/mcp', asn: 16509, ts: Date.now() })
+  t.is(day.byPathBots['/mcp'].count, 1)
+  t.is(day.byPathBots['/mcp'].asn, 16509)
+})
+test('applyHit: byPathBots accumulates count across multiple bot hits on same path', t => {
+  const hit = { bot: true, path: '/mcp', asn: 16509, ts: Date.now() }
+  const r1 = applyHit(freshDay('2026-03-03'), new Set(), hit)
+  const { day } = applyHit(r1.day, r1.uniques, hit)
+  t.is(day.byPathBots['/mcp'].count, 2)
+})
+test('applyHit: real hits do not increment byPathBots', t => {
+  const { day } = applyHit(freshDay('2026-03-03'), new Set(), buildHit('/mcp', {}, 'ip1'))
+  t.is(day.byPathBots['/mcp'], undefined)
+})
+test('applyHit: recentBots capped at 999', t => {
+  let day = freshDay('2026-03-03')
+  let uniques = new Set()
+  for (let i = 0; i < 1001; i++) {
+    const r = applyHit(day, uniques, { bot: true, path: '/probe', ts: Date.now() })
+    day = r.day
+    uniques = r.uniques
+  }
+  t.is(day.recentBots.length, 999)
 })
 
 // serializeDay / deserializeDay
