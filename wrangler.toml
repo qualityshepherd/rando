@@ -27,3 +27,6 @@ enabled = true
 
 [observability.logs]
 enabled = true
+
+[vars]
+DOMAIN_NAME = "rando.brine.dev"

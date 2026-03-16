@@ -10,6 +10,10 @@ export default {
     const url = new URL(req.url)
     const path = url.pathname
 
+    if (path === '/.well-known/webfinger') {
+      return Response.redirect(`https://fed.brid.gy/.well-known/webfinger${url.search}`, 302)
+    }
+
     if (path === '/api/analytics') {
       const secret = url.searchParams.get('secret')
       if (!isAuthorized(secret, env.ADMIN_SECRET)) return new Response('Unauthorized', { status: 401 })
@@ -21,15 +25,18 @@ export default {
       return new Response('ok')
     }
 
+    // Fire analytics in background for initial page loads
     ctx.waitUntil(trackHit(req, env))
 
     return env.ASSETS.fetch(req)
   },
 
   async scheduled (event, env, ctx) {
+    // Safety net: if the DO alarm misfired, force a backup via cron
     ctx.waitUntil((async () => {
       try {
-        const hostname = new URL(`https://${env.ASSETS_HOST || 'rando.brine.dev'}`).hostname
+        const hostname = env.DOMAIN_NAME
+        if (!hostname) { console.error('DOMAIN_NAME not set — skipping alarm check'); return }
         const id = env.ANALYTICS.idFromName(hostname)
         const stub = env.ANALYTICS.get(id)
         await stub.fetch('https://do.local/ensureAlarm', { method: 'POST' })
