@@ -3,7 +3,7 @@ import ANALYTICS_TEMPLATE from './analyticsTemplate.js'
 
 const SKIP_PATHS = [
   '/.well-known', '/actor', '/api', '/favicon', '/feeds.json', '/feedIndex.json',
-  '/index.json', '/nodeinfo', '/robots.txt', '/sitemap', '/src'
+  '/index.json', '/manifest.json', '/nodeinfo', '/robots.txt', '/sitemap', '/src'
 ]
 
 const SKIP_EXTENSIONS = [
@@ -21,8 +21,8 @@ const BOT_PREFIXES = [
 ]
 
 const BOT_PATHS = [
-  '%24', '%40vite', '%7b', '${', '../', '..\\'
-  , '.asp', '.aspx', '.aws', '.ds_store', '.env',
+  '%24', '%3c', '%3e', '%40vite', '%7b', '${', '../', '..\\', '<', '"/',
+  '.asp', '.aspx', '.aws', '.ds_store', '.env',
   '.git', '.npmrc', '.php', '.sql', '.vscode',
   '@vite', 'actuator', 'admin', 'backup',
   'cgi-bin', 'composer.json', 'computemetadata', 'config',
@@ -43,6 +43,7 @@ const BOT_UAS = [
 
 const BOT_ASNS = new Set([
   8075,   // Microsoft Azure
+  9009,   // M247 (Romanian provider, tons of scanner traffic)
   14061,  // DigitalOcean
   14618,  // AWS
   15169,  // Google Cloud
@@ -51,7 +52,9 @@ const BOT_ASNS = new Set([
   19551,  // Incapsula
   20473,  // Vultr
   24940,  // Hetzner
+  51167,  // Contabo (very common scanner source)
   63949,  // Linode/Akamai
+  211590, // Scaleway - Paris scanner
   396982  // Google Cloud
 ])
 
@@ -442,7 +445,7 @@ export async function handleAnalytics (req, env, hostname) {
   const result = [{ date: todayData.date, data: todayData }]
 
   if (env.R2) {
-    const promises = historicalDates(days).map(dateStr =>
+    const promises = historicalDates(days, new Date(todayData.date + 'T12:00:00Z')).map(dateStr =>
       env.R2.get(backupKey(dateStr))
         .then(obj => obj ? obj.json().then(data => ({ date: dateStr, data })) : null)
     )
