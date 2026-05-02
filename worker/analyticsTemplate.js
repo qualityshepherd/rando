@@ -244,7 +244,7 @@ const renderLogs = () => {
         const r = s.pathRefs && s.pathRefs[j] ? (() => { try { return new URL(s.pathRefs[j]).hostname } catch { return '' } })() : ''
         return \`<div class="session-header" onclick="clearFilter()" style="cursor:pointer">\` +
         \`<span class="log-ts" title="\${s.ip || ''}">\${fmtTs(s.pathTs ? s.pathTs[j] : s.ts)}</span>\` +
-        \`<span class="log-flag">\${flagWithRegion(s.country, s.region)}</span>\` +
+        \`<span class="log-flag"><a href="https://maps.google.com/?q=\${encodeURIComponent([s.city, s.region && s.region !== '?' ? s.region : null, countryName(s.country)].filter(Boolean).join(', '))}" target="_blank" onclick="event.stopPropagation()">\${flagWithRegion(s.country, s.region)}</a></span>\` +
         \`<span class="log-city">\${s.city || '?'}</span>\` +
         \`<span class="log-path" title="\${p}">\${p}</span>\` +
         \`<span class="log-ref">\${r}</span>\` +
@@ -262,7 +262,7 @@ const renderLogs = () => {
     const firstRef = s.pathRefs && s.pathRefs[0] ? (() => { try { return new URL(s.pathRefs[0]).hostname } catch { return '' } })() : ''
     return \`<div class="session-header">\` +
       \`<span class="log-ts" title="\${s.ip || ''}">\${fmtTs(s.ts)}</span>\` +
-      \`<span class="log-flag">\${flagWithRegion(s.country, s.region)}</span>\` +
+      \`<span class="log-flag"><a href="https://maps.google.com/?q=\${encodeURIComponent([s.city, s.region && s.region !== '?' ? s.region : null, countryName(s.country)].filter(Boolean).join(', '))}" target="_blank" onclick="event.stopPropagation()">\${flagWithRegion(s.country, s.region)}</a></span>\` +
       \`<span class="log-city\${count > 1 ? ' active' : ''}" \${count > 1 ? \`onclick="filterIp('\${s.ip}')"\` : ''} style="\${count > 1 ? 'cursor:pointer' : ''}" title="\${s.city}">\${s.city || '?'}\${count > 1 ? \` (\${count})\` : ''}</span>\` +
       \`<span class="log-path" title="\${firstPath}">\${firstPath}</span>\` +
       \`<span class="log-ref">\${firstRef}</span>\` +
