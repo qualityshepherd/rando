@@ -123,7 +123,7 @@ function renderRando () {
 }
 
 export const handleRandoRoute = async (req, env) => {
-  const htmlRes = await env.ASSETS.fetch(new Request(new URL('/', req.url)))
+  const htmlRes = await env.ASSETS.fetch(new Request(new URL('/index.html', req.url)))
   const html = await htmlRes.text()
   const injected = html.replace('<main></main>', `<main>${renderRando()}</main>`)
   return new Response(injected, {
