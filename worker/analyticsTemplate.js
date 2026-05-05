@@ -298,7 +298,7 @@ const render = (allData) => {
     ? rssFeeds.map(([feed, v]) => {
         const subInfo = v.subscribers > 0 ? \` · \${v.subscribers} subs\` : ''
         const aggs = Object.keys(v.aggregators).join(', ')
-        return \`<div class="tip-row"><span>\${feed}</span><strong>\${v.hits || 0} hits\${subInfo}\${aggs ? \` · \${aggs}\` : ''}</strong></div>\`
+        return \`<div class="tip-row"><span>📡 \${feed}\${subInfo}\${aggs ? \` · \${aggs}\` : ''}</span><strong>\${v.hits || 0}</strong></div>\`
       }).join('')
     : \`<div class="tip-row"><span>no rss hits yet</span></div>\`
 

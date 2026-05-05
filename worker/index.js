@@ -1,4 +1,5 @@
 import { trackHit, handleAnalytics, AnalyticsDO } from './analytics.js'
+import { handleRandoRoute } from './rando.js'
 
 export { AnalyticsDO }
 
@@ -27,6 +28,8 @@ export default {
 
     // Fire analytics in background for initial page loads
     ctx.waitUntil(trackHit(req, env))
+
+    if (path === '/') return handleRandoRoute(req, env)
 
     return env.ASSETS.fetch(req)
   },
