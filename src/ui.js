@@ -11,9 +11,6 @@ export function renderErrorPage () {
 }
 
 function setupInteractions () {
-  const reroll = elements.rerollButton
-  reroll?.addEventListener('click', () => location.reload())
-
   const copy = elements.copyButton
   copy?.addEventListener('click', () => {
     const text = [...document.querySelectorAll('.copyToClipboard')]
