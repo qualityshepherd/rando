@@ -4,8 +4,5 @@ export const elements = {
   main: document.querySelector('main'),
   get copyButton () {
     return document.querySelector('[data-copy]')
-  },
-  get rerollButton () {
-    return document.querySelector('.dice')
   }
 }

@@ -5,9 +5,14 @@ Array.prototype.random = function () {
   return this[Math.floor((Math.random() * this.length))]
 }
 
+const jsonCache = new Map()
+
 export async function getJsonData (path) {
-  const data = await fetch(path)
-  return await data.json()
+  if (!jsonCache.has(path)) {
+    const res = await fetch(path)
+    jsonCache.set(path, await res.json())
+  }
+  return jsonCache.get(path)
 }
 
 export function d6 (numDie = 1) {
@@ -57,7 +62,8 @@ export async function epithets () {
 }
 
 export async function tarotCard () {
-  const card = (await getJsonData('../data/tarot.json')).random()
+  const data = await getJsonData('../data/tarot.json')
+  const card = { ...data.random() }
   if (d6() < 3) {
     card.reversed = true
   }
@@ -102,10 +108,4 @@ export async function yesNoAndBut () {
 
 export async function arrow () {
   return `./assets/images/arrow/${d6()}.svg`
-}
-
-export function sortBy (prop) {
-  return (a, b) => {
-    return (a[prop] > b[prop]) ? 1 : (a[prop] < b[prop]) ? -1 : 0
-  }
 }

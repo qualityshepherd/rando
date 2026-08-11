@@ -1,5 +1,5 @@
 import { unit as test } from '../testpup.js'
-import { applyHit, backupKey, buildHit, buildR2Backup, countryFlag, classifyHit, deserializeDay, freshDay, historicalDates, isBot, loadDay, resetDay, serializeDay } from '../../worker/analytics.js'
+import { buildHit, countryFlag, classifyHit, isBot, trackHit, handleAnalytics, parseDevice, parseRssSubscribers } from '../../worker/analytics.js'
 
 // isBot
 test('Analytics: isBot detects php probe', t => { t.ok(isBot('/wp-login.php')) })
@@ -43,11 +43,6 @@ test('Analytics: countryFlag returns span with flag and title', t => {
 })
 test('Analytics: countryFlag returns empty string for unknown', t => { t.is(countryFlag('?'), '') })
 
-// backupKey
-test('Backup: backupKey generates correct R2 path', t => {
-  t.is(backupKey('2026-03-01'), 'analytics/2026-03-01.json')
-})
-
 // buildHit
 test('buildHit: has region field', t => {
   t.ok('region' in buildHit('/post', { country: 'US', city: 'NYC', region: 'NY' }, 'abc123'))
@@ -80,256 +75,91 @@ test('buildHit: defaults asn to null', t => {
   t.is(hit.asn, null)
 })
 
-// freshDay
-test('freshDay: returns correct shape', t => {
-  const day = freshDay('2026-03-03')
-  t.is(day.date, '2026-03-03')
-  t.is(day.totalHits, 0)
-  t.is(day.bots, 0)
-  t.is(day.uniques, 0)
-  t.deepEqual(day.byHour, Array(24).fill(0))
-  t.ok('byPath' in day)
-  t.ok('byCountry' in day)
-  t.ok('byCity' in day)
-  t.ok('byReferrer' in day)
-  t.ok('byPathBots' in day)
+// parseDevice & parseRssSubscribers
+test('parseDevice: detects mobile UA', t => {
+  t.is(parseDevice('Mozilla/5.0 (iPhone; CPU iPhone OS 14_0 like Mac OS X)'), 'mobile')
 })
-test('freshDay: no region in shape', t => {
-  const day = freshDay('2026-03-03')
-  t.ok(!('region' in day))
-  t.ok(!('byRegion' in day))
-})
-test('freshDay: has recentBots array', t => {
-  const day = freshDay('2026-03-03')
-  t.ok(Array.isArray(day.recentBots))
-  t.is(day.recentBots.length, 0)
+test('parseDevice: defaults to desktop', t => {
+  t.is(parseDevice('Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)'), 'desktop')
 })
 
-// loadDay — pure, one job: load stored or return fresh. NEVER resets.
-test('loadDay: returns stored data as-is', t => {
-  const { day: withHit, uniques } = applyHit(freshDay('2026-03-03'), new Set(), buildHit('/', {}, 'ip1'))
-  const stored = serializeDay(withHit, uniques)
-  const { day } = loadDay(stored)
-  t.is(day.totalHits, 1)
-  t.is(day.date, '2026-03-03')
+test('parseRssSubscribers: parses Feedbin', t => {
+  const res = parseRssSubscribers('Feedbin feed-id:123 - 42 subscribers')
+  t.is(res.aggregator, 'Feedbin')
+  t.is(res.subscribers, 42)
 })
 
-test('loadDay: returns stored data even when date is yesterday — no reset', t => {
-  const yesterday = '2026-03-06'
-  const { day: withHit, uniques } = applyHit(freshDay(yesterday), new Set(), buildHit('/', {}, 'ip1'))
-  const stored = serializeDay(withHit, uniques)
-  const { day } = loadDay(stored)
-  t.is(day.date, yesterday)
-  t.is(day.totalHits, 1) // preserved, not wiped
-})
-
-test('loadDay: returns fresh day for given date when nothing stored', t => {
-  const { day } = loadDay(null, '2026-03-08')
-  t.is(day.date, '2026-03-08')
-  t.is(day.totalHits, 0)
-})
-
-test('loadDay: returns fresh day when undefined', t => {
-  const { day } = loadDay(undefined, '2026-03-08')
-  t.is(day.totalHits, 0)
-})
-
-// resetDay — pure, only the alarm calls this
-test('resetDay: returns fresh day for next date', t => {
-  const stored = serializeDay(freshDay('2026-03-07'), new Set())
-  const { day } = resetDay(stored)
-  t.is(day.date, '2026-03-08')
-  t.is(day.totalHits, 0)
-})
-
-test('resetDay: works across month boundary', t => {
-  const stored = serializeDay(freshDay('2026-03-31'), new Set())
-  t.is(resetDay(stored).day.date, '2026-04-01')
-})
-
-test('resetDay: works across year boundary', t => {
-  const stored = serializeDay(freshDay('2026-12-31'), new Set())
-  t.is(resetDay(stored).day.date, '2027-01-01')
-})
-
-// applyHit
-test('applyHit: increments totalHits', t => {
-  const { day } = applyHit(freshDay('2026-03-03'), new Set(), buildHit('/foo', { country: 'US', city: 'NYC' }, 'ip1'))
-  t.is(day.totalHits, 1)
-})
-test('applyHit: counts bot separately', t => {
-  const { day } = applyHit(freshDay('2026-03-03'), new Set(), { bot: true })
-  t.is(day.bots, 1)
-  t.is(day.totalHits, 0)
-})
-test('applyHit: tracks unique ips', t => {
-  const hit = buildHit('/foo', {}, 'ip1')
-  const r1 = applyHit(freshDay('2026-03-03'), new Set(), hit)
-  const r2 = applyHit(r1.day, r1.uniques, hit)
-  t.is(r2.uniques.size, 1)
-  t.is(r2.day.uniques, 1)
-})
-test('applyHit: does not mutate input day', t => {
-  const day = freshDay('2026-03-03')
-  applyHit(day, new Set(), buildHit('/foo', { country: 'US' }, 'ip1'))
-  t.is(day.totalHits, 0)
-})
-test('applyHit: increments byPath', t => {
-  const { day } = applyHit(freshDay('2026-03-03'), new Set(), buildHit('/posts/hello', {}, 'ip1'))
-  t.is(day.byPath['/posts/hello'], 1)
-})
-test('applyHit: increments byHour', t => {
-  const ts = new Date('2026-03-03T09:00:00Z').getTime()
-  const { day } = applyHit(freshDay('2026-03-03'), new Set(), buildHit('/foo', {}, 'ip1', '', ts))
-  t.is(day.byHour[9], 1)
-})
-test('applyHit: increments byDow', t => {
-  const ts = new Date('2026-03-03T09:00:00Z').getTime()
-  const { day } = applyHit(freshDay('2026-03-03'), new Set(), buildHit('/foo', {}, 'ip1', '', ts))
-  t.is(day.byDow[2], 1)
-})
-test('applyHit: increments byCountry', t => {
-  const { day } = applyHit(freshDay('2026-03-03'), new Set(), buildHit('/foo', { country: 'JP' }, 'ip1'))
-  t.is(day.byCountry.JP, 1)
-})
-test('applyHit: parses referrer hostname', t => {
-  const { day } = applyHit(freshDay('2026-03-03'), new Set(), buildHit('/foo', {}, 'ip1', 'https://news.ycombinator.com/item?id=123'))
-  t.is(day.byReferrer['news.ycombinator.com'], 1)
-})
-test('applyHit: adds to recentHits', t => {
-  const { day } = applyHit(freshDay('2026-03-03'), new Set(), buildHit('/foo', { country: 'US', city: 'NYC' }, 'ip1'))
-  t.is(day.recentHits.length, 1)
-  t.is(day.recentHits[0].path, '/foo')
-})
-test('applyHit: bots do not add to recentHits', t => {
-  const { day } = applyHit(freshDay('2026-03-03'), new Set(), { bot: true })
-  t.is(day.recentHits.length, 0)
-})
-
-// bot tracking
-test('applyHit: bot hits add to recentBots', t => {
-  const { day } = applyHit(freshDay('2026-03-03'), new Set(), { bot: true, path: '/old/archive.zip', country: 'NL', city: 'Lelystad', ip: 'abc123', asn: 14061, ts: Date.now() })
-  t.is(day.recentBots.length, 1)
-  t.is(day.recentBots[0].path, '/old/archive.zip')
-  t.is(day.recentBots[0].asn, 14061)
-})
-test('applyHit: bot hits store ip hash in recentBots', t => {
-  const { day } = applyHit(freshDay('2026-03-03'), new Set(), { bot: true, path: '/wp-login.php', ip: 'deadbeef', asn: 8075, ts: Date.now() })
-  t.is(day.recentBots[0].ip, 'deadbeef')
-})
-test('applyHit: bot hits without path use ?', t => {
-  const { day } = applyHit(freshDay('2026-03-03'), new Set(), { bot: true })
-  t.is(day.recentBots[0].path, '?')
-})
-test('applyHit: bot hits increment byPathBots with asn', t => {
-  const { day } = applyHit(freshDay('2026-03-03'), new Set(), { bot: true, path: '/mcp', asn: 16509, ts: Date.now() })
-  t.is(day.byPathBots['/mcp'].count, 1)
-  t.deepEqual(day.byPathBots['/mcp'].asns, [16509])
-})
-test('applyHit: byPathBots accumulates count across multiple bot hits on same path', t => {
-  const hit = { bot: true, path: '/mcp', asn: 16509, ts: Date.now() }
-  const r1 = applyHit(freshDay('2026-03-03'), new Set(), hit)
-  const { day } = applyHit(r1.day, r1.uniques, hit)
-  t.is(day.byPathBots['/mcp'].count, 2)
-  t.is(day.byPathBots['/mcp'].asns.length, 1) // same asn, deduped
-})
-test('applyHit: byPathBots collects multiple unique asns', t => {
-  const r1 = applyHit(freshDay('2026-03-03'), new Set(), { bot: true, path: '/mcp', asn: 16509, ts: Date.now() })
-  const { day } = applyHit(r1.day, r1.uniques, { bot: true, path: '/mcp', asn: 14061, ts: Date.now() })
-  t.deepEqual(day.byPathBots['/mcp'].asns.sort(), [14061, 16509])
-})
-test('applyHit: real hits do not increment byPathBots', t => {
-  const { day } = applyHit(freshDay('2026-03-03'), new Set(), buildHit('/mcp', {}, 'ip1'))
-  t.is(day.byPathBots['/mcp'], undefined)
-})
-test('applyHit: recentBots capped at 999', t => {
-  let day = freshDay('2026-03-03')
-  let uniques = new Set()
-  for (let i = 0; i < 1001; i++) {
-    const r = applyHit(day, uniques, { bot: true, path: '/probe', ts: Date.now() })
-    day = r.day
-    uniques = r.uniques
+// D1 tracking tests
+test('trackHit: inserts hit record into D1 DB', async t => {
+  let inserted = null
+  const mockDb = {
+    prepare (query) {
+      return {
+        bind (...args) {
+          inserted = { query, args }
+          return { run: async () => ({}) }
+        }
+      }
+    }
   }
-  t.is(day.recentBots.length, 999)
+
+  const req = new Request('https://rando.brine.dev/', {
+    headers: { 'cf-connecting-ip': '1.2.3.4', 'user-agent': 'Mozilla/5.0' }
+  })
+  await trackHit(req, { DB: mockDb })
+
+  t.ok(inserted !== null)
+  t.ok(inserted.query.includes('INSERT INTO hits'))
+  t.is(inserted.args[1], '/') // path
+  t.is(inserted.args[8], 0) // is_bot = 0
 })
 
-// serializeDay / deserializeDay
-test('serializeDay: stores uniques as array', t => {
-  const out = serializeDay(freshDay('2026-03-03'), new Set(['ip1', 'ip2']))
-  t.deepEqual(out._uniqueArr.sort(), ['ip1', 'ip2'])
-  t.is(out.uniques, 2)
-})
-test('deserializeDay: restores Set from array', t => {
-  const stored = serializeDay(freshDay('2026-03-03'), new Set(['ip1', 'ip2']))
-  const { day, uniques } = deserializeDay(stored)
-  t.ok(uniques instanceof Set)
-  t.is(uniques.size, 2)
-  t.ok(!('_uniqueArr' in day))
-})
-test('deserializeDay: handles missing _uniqueArr', t => {
-  const { uniques } = deserializeDay(freshDay('2026-03-03'))
-  t.ok(uniques instanceof Set)
-  t.is(uniques.size, 0)
+test('trackHit: inserts bot record into D1 DB for scanners', async t => {
+  let inserted = null
+  const mockDb = {
+    prepare (query) {
+      return {
+        bind (...args) {
+          inserted = { query, args }
+          return { run: async () => ({}) }
+        }
+      }
+    }
+  }
+
+  const req = new Request('https://rando.brine.dev/wp-login.php', {
+    headers: { 'cf-connecting-ip': '1.2.3.4' }
+  })
+  await trackHit(req, { DB: mockDb })
+
+  t.ok(inserted !== null)
+  t.is(inserted.args[1], '/wp-login.php')
+  t.is(inserted.args[8], 1) // is_bot = 1
 })
 
-// buildR2Backup
-test('buildR2Backup: returns null when nothing stored', t => {
-  t.is(buildR2Backup(null), null)
-  t.is(buildR2Backup(undefined), null)
-})
-test('buildR2Backup: uses stored date not today', t => {
-  const yesterday = '2026-03-05'
-  const stored = serializeDay(freshDay(yesterday), new Set(['ip1']))
-  t.is(buildR2Backup(stored).key, `analytics/${yesterday}.json`)
-})
-test('buildR2Backup: data contains actual hits', t => {
-  const { day: populated, uniques } = applyHit(freshDay('2026-03-05'), new Set(), buildHit('/posts/foo', { country: 'US', city: 'NYC' }, 'ip1'))
-  const parsed = JSON.parse(buildR2Backup(serializeDay(populated, uniques)).data)
-  t.is(parsed.totalHits, 1)
-  t.is(parsed.byPath['/posts/foo'], 1)
-})
-test('buildR2Backup: uniques is array not Set', t => {
-  const parsed = JSON.parse(buildR2Backup(serializeDay(freshDay('2026-03-05'), new Set(['ip1', 'ip2']))).data)
-  t.ok(Array.isArray(parsed.uniques))
-  t.is(parsed.uniques.length, 2)
-})
-test('buildR2Backup: key is correct R2 path', t => {
-  t.is(buildR2Backup(serializeDay(freshDay('2026-01-15'), new Set())).key, 'analytics/2026-01-15.json')
-})
-test('buildR2Backup regression: stored date differs from today — saves stored data not fresh', t => {
-  const yesterday = '2026-03-05'
-  const { day: withHit, uniques } = applyHit(freshDay(yesterday), new Set(), buildHit('/', { country: 'DE' }, 'abc'))
-  const backup = buildR2Backup(serializeDay(withHit, uniques))
-  t.ok(backup !== null)
-  t.ok(backup.key.includes(yesterday))
-  t.is(JSON.parse(backup.data).totalHits, 1) // not 0
-})
+test('handleAnalytics: aggregates D1 hits by day', async t => {
+  const ts = Date.now()
+  const mockDb = {
+    prepare (query) {
+      return {
+        bind () {
+          return {
+            all: async () => ({
+              results: [
+                { ts, path: '/', country: 'US', city: 'NYC', region: 'NY', device: 'desktop', referrer: '', ip_hash: 'abc', is_bot: 0, asn: null, rss_feed: null, rss_subs: null }
+              ]
+            })
+          }
+        }
+      }
+    }
+  }
 
-// historicalDates — UTC date stepping for R2 key generation
-test('historicalDates: returns days-1 entries', t => {
-  const now = new Date('2026-03-15T10:00:00Z')
-  t.is(historicalDates(7, now).length, 6)
-})
+  const req = new Request('https://rando.brine.dev/api/analytics?days=1')
+  const res = await handleAnalytics(req, { DB: mockDb }, 'rando.brine.dev')
+  const json = await res.json()
 
-test('historicalDates: first entry is yesterday in UTC', t => {
-  const now = new Date('2026-03-15T10:00:00Z')
-  t.is(historicalDates(7, now)[0], '2026-03-14')
-})
-
-test('historicalDates: steps back correctly across month boundary', t => {
-  const now = new Date('2026-04-01T10:00:00Z')
-  const dates = historicalDates(3, now)
-  t.is(dates[0], '2026-03-31')
-  t.is(dates[1], '2026-03-30')
-})
-
-test('historicalDates: does not drift at UTC midnight boundary', t => {
-  // 23:30 UTC — local time in UTC-8 would be previous day, causing off-by-one with setDate
-  const now = new Date('2026-03-15T23:30:00Z')
-  t.is(historicalDates(2, now)[0], '2026-03-14')
-})
-
-test('historicalDates: days=1 returns empty (today only, no history)', t => {
-  const now = new Date('2026-03-15T10:00:00Z')
-  t.is(historicalDates(1, now).length, 0)
+  t.ok(Array.isArray(json))
+  t.is(json[0].data.totalHits, 1)
+  t.is(json[0].data.uniques, 1)
 })

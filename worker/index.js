@@ -1,7 +1,5 @@
-import { trackHit, handleAnalytics, AnalyticsDO } from './analytics.js'
+import { trackHit, handleAnalytics } from './analytics.js'
 import { handleRandoRoute } from './rando.js'
-
-export { AnalyticsDO }
 
 export const isAuthorized = (secret, adminSecret) =>
   !!secret && !!adminSecret && secret === adminSecret
@@ -32,20 +30,5 @@ export default {
     if (path === '/') return handleRandoRoute(req, env)
 
     return env.ASSETS.fetch(req)
-  },
-
-  async scheduled (event, env, ctx) {
-    // Safety net: if the DO alarm misfired, force a backup via cron
-    ctx.waitUntil((async () => {
-      try {
-        const hostname = env.DOMAIN_NAME
-        if (!hostname) { console.error('DOMAIN_NAME not set — skipping alarm check'); return }
-        const id = env.ANALYTICS.idFromName(hostname)
-        const stub = env.ANALYTICS.get(id)
-        await stub.fetch('https://do.local/ensureAlarm', { method: 'POST' })
-      } catch (err) {
-        console.error('Scheduled alarm check failed:', err)
-      }
-    })())
   }
 }

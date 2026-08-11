@@ -8,20 +8,14 @@ not_found_handling = "single-page-application"
 binding = "ASSETS"
 run_worker_first = true
 
-[[durable_objects.bindings]]
-name = "ANALYTICS"
-class_name = "AnalyticsDO"
+[[d1_databases]]
+binding = "DB"
+database_name = "rando"
+database_id = "b61c9d6b-8ddd-4670-8a1e-2a42f3cdd92b"
 
 [[migrations]]
-tag = "v1"
-new_sqlite_classes = ["AnalyticsDO"]
-
-[[r2_buckets]]
-binding = "R2"
-bucket_name = "rando"
-
-[triggers]
-crons = ["0 2 * * *"]
+tag = "v2"
+deleted_classes = ["AnalyticsDO"]
 
 [observability]
 enabled = true
