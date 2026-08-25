@@ -12,14 +12,13 @@
   },
   "scripts": {
     "test": "node --test --test-reporter spec test/**/*.test.js",
-    "server": "sirv . --port 4242 --single --quiet",
+    "chalk": "wrangler secret put CHALK_HIT_SECRET",
     "pretty": "npx standard --fix",
     "deploy": "wrangler deploy",
     "db": "wrangler d1 migrations apply rando --remote",
     "purge": "curl -X POST \"https://api.cloudflare.com/client/v4/zones/$BRINE_TOKEN/purge_cache\" -H \"Authorization: Bearer $BEARER\" -H \"Content-Type: application/json\" --data '{\"purge_everything\":true}'"
   },
   "devDependencies": {
-    "puppeteer": "^24.3.1",
-    "sirv-cli": "^3.0.0"
+    "wrangler": "^4.125.0"
   }
 }

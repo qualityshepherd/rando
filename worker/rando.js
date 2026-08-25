@@ -41,11 +41,11 @@ function getRando () {
     trade: rand(miscData.trade),
     weather: weatherArr[weatherArr[0]],
     severity: severityArr[severityArr[0]],
-    iconUrl: `./assets/images/weather/${weatherArr[0]}.svg`,
+    iconUrl: `/images/weather/${weatherArr[0]}.svg`,
     potion: `${rand(lootData.potion_adjective)}, ${rand(lootData.color)} liquid that ${rand(lootData.taste)} that makes the target <i>${rand(lootData.effect)}</i>`,
     loot: rand(lootData.type),
     magicItem: rand(lootData.magicItem),
-    arrow: `./assets/images/arrow/${d6()}.svg`,
+    arrow: `/images/arrow/${d6()}.svg`,
     yesNoAndBut: ['No+', 'No', 'No?', 'Yes?', 'Yes', 'Yes+'][d6() - 1],
     sparks: pickUnique(sparksData, 4).join(', '),
     room: pickUnique(roomsData, 4).join(', '),
@@ -55,17 +55,36 @@ function getRando () {
   }
 }
 
-function renderRando () {
+function renderPage () {
   const r = getRando()
   const orientation = r.card.reversed ? 'reversed' : 'upright'
   const description = r.card.reversed ? r.card.desc_reversed : r.card.desc_upright
   const threeWords = description.split(', ').sort(() => 0.5 - Math.random()).slice(0, 4).join(', ')
 
-  return `
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Rando: Spark generator for TTRPGs</title>
+  <meta charset="utf-8">
+  <meta name="description" content="A random spark generator for running ttrpgs...">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:url" content="https://rando.brine.dev/">
+  <meta property="og:image" content="/images/rando.png">
+  <meta property="og:image:width" content="1552">
+  <meta property="og:image:height" content="1374">
+  <link rel="preload" href="/fonts/Oswald-Regular.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="/fonts/Inter-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/css/site.css">
+  <link rel="icon" href="/favicon.png">
+</head>
+<body>
+
+<div id="container">
+  <main>
     <right>
       <dice>
-        <a class="dice" title="refresh...">
-          ${[d6(), d6(), d6()].map(n => `<img src="./assets/images/dice/${n}.svg" title="click to re-roll" />`).join('')}
+        <a class="dice" href="/" title="reroll...">
+          ${[d6(), d6(), d6()].map(n => `<img src="/images/dice/${n}.svg" title="click to re-roll" />`).join('')}
         </a>
       </dice>
 
@@ -115,18 +134,24 @@ function renderRando () {
         <br>written by <a href="https://brine.dev"><b>brine</b></a>
         <div class="kofi">
           <a href="https://ko-fi.com/brine">
-            <img src="./assets/images/kofi.png" class="dim" title="buy me a coffee...">
+            <img src="/images/kofi.png" class="dim" title="buy me a coffee...">
           </a>
         </div>
       </div>
-    </footer>`
+    </footer>
+  </main>
+</div>
+
+<script>
+document.querySelector('[data-copy]')?.addEventListener('click', () => {
+  const text = [...document.querySelectorAll('.copyToClipboard')].map(el => el.textContent.trim()).join('\\n')
+  navigator.clipboard.writeText(text).catch(console.error)
+})
+</script>
+</body>
+</html>`
 }
 
-export const handleRandoRoute = async (req, env) => {
-  const htmlRes = await env.ASSETS.fetch(new Request(new URL('/index.html', req.url)))
-  const html = await htmlRes.text()
-  const injected = html.replace('<main></main>', `<main>${renderRando()}</main>`)
-  return new Response(injected, {
-    headers: { 'Content-Type': 'text/html;charset=UTF-8', 'Cache-Control': 'no-store' }
-  })
-}
+export const handleRandoRoute = () => new Response(renderPage(), {
+  headers: { 'Content-Type': 'text/html;charset=UTF-8', 'Cache-Control': 'no-store' }
+})
