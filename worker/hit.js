@@ -51,6 +51,8 @@ export async function trackHit (req, env) {
       city: cf.city,
       region: cf.region,
       asn: cf.asn,
+      as_organization: cf.asOrganization,
+      http_protocol: cf.httpProtocol,
       ts: Date.now()
     })
   }).catch(() => {})
