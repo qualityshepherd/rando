@@ -2,7 +2,7 @@
 // routes) — this is app-specific routing knowledge chalk can't know, so it
 // stays here. Everything else gets forwarded to chalk as raw signal; bot,
 // device, and RSS-subscriber classification all happen there now, not here.
-const SKIP_PATHS = ['/data', '/favicon', '/robots.txt']
+const SKIP_PATHS = ['/data', '/env', '/favicon', '/nodeinfo', '/robots.txt', '/.well-known/nodeinfo']
 
 const SKIP_EXTENSIONS = [
   '.bak', '.css', '.ico', '.gz', '.jpg', '.js', '.mp3', '.otf', '.png', '.rar', '.svg', '.tar', '.ttf', '.webp', '.woff', '.woff2', '.zip'
