@@ -2,17 +2,12 @@ import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { shouldSkip, trackHit } from '../../worker/hit.js'
 
-// shouldSkip — app-specific "is this even a pageview" filtering. Bot/device/
-// RSS classification now happens in chalk, not here.
 test('shouldSkip: skips static extensions', () => { assert.ok(shouldSkip('/assets/css/style.css')) })
 test('shouldSkip: skips png', () => { assert.ok(shouldSkip('/apple-touch-icon.png')) })
 test('shouldSkip: skips mp3', () => { assert.ok(shouldSkip('/pods/episode.mp3')) })
 test('shouldSkip: skips js by extension', () => { assert.ok(shouldSkip('/src/app.js')) })
-test('shouldSkip: skips /favicon paths', () => { assert.ok(shouldSkip('/favicon.png')) })
+test('shouldSkip: does not skip /favicon locally (chalk classifies it centrally)', () => { assert.ok(!shouldSkip('/favicon')) })
 test('shouldSkip: skips /data paths', () => { assert.ok(shouldSkip('/data/sparks.json')) })
-test('shouldSkip: skips /env paths (scanner probes)', () => { assert.ok(shouldSkip('/env')) })
-test('shouldSkip: skips /nodeinfo paths', () => { assert.ok(shouldSkip('/nodeinfo/2.1')) })
-test('shouldSkip: skips /.well-known/nodeinfo', () => { assert.ok(shouldSkip('/.well-known/nodeinfo')) })
 test('shouldSkip: normal path is not skipped', () => { assert.ok(!shouldSkip('/')) })
 test('shouldSkip: extension check ignores query string', () => { assert.ok(shouldSkip('/style.css?v=2')) })
 
