@@ -14,7 +14,7 @@ export const shouldSkip = (path) => {
   return SKIP_EXTENSIONS.some(e => lower.endsWith(e))
 }
 
-export async function trackHit (req, env) {
+export async function trackHit (req, env, status) {
   if (!env.CHALK_HIT_SECRET) return
 
   const url = new URL(req.url)
@@ -53,6 +53,7 @@ export async function trackHit (req, env) {
       asn: cf.asn,
       as_organization: cf.asOrganization,
       http_protocol: cf.httpProtocol,
+      status,
       ts: Date.now()
     })
   }).catch(() => {})

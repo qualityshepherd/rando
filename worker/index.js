@@ -10,10 +10,8 @@ export default {
       return Response.redirect(`https://fed.brid.gy/.well-known/webfinger${url.search}`, 302)
     }
 
-    ctx.waitUntil(trackHit(req, env))
-
-    if (path === '/') return handleRandoRoute()
-
-    return env.ASSETS.fetch(req)
+    const response = path === '/' ? handleRandoRoute() : await env.ASSETS.fetch(req)
+    ctx.waitUntil(trackHit(req, env, response.status))
+    return response
   }
 }

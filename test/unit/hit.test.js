@@ -44,6 +44,19 @@ test('trackHit: forwards raw signal to chalk', async () => {
   assert.equal(body.ua, 'Mozilla/5.0')
 })
 
+test('trackHit: forwards the response status when provided', async () => {
+  let captured = null
+  await withMockFetch(async (url, init) => { captured = init; return new Response('ok') }, async () => {
+    const req = new Request('https://rando.brine.dev/nonexistent', {
+      headers: { 'cf-connecting-ip': '1.2.3.4' }
+    })
+    await trackHit(req, { CHALK_HIT_SECRET: 'secret', DOMAIN_NAME: 'rando.brine.dev' }, 404)
+  })
+
+  const body = JSON.parse(captured.body)
+  assert.equal(body.status, 404)
+})
+
 test('trackHit: does not forward asset requests', async () => {
   let called = false
   await withMockFetch(async () => { called = true; return new Response('ok') }, async () => {
